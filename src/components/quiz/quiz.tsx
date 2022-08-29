@@ -1,13 +1,14 @@
 import React, { FC, useEffect, useReducer, useState } from 'react';
 import QuizElement from '../quiz-element/quiz-element';
-import { nanoid } from '@reduxjs/toolkit';
+
 import { IAnswer } from '../answers/answers';
 import Typography from '@mui/material/Typography';
 import { Button, Icon, makeStyles, TextField } from '@mui/material';
 import UserInfo from '../user-info/user-info';
+import { nanoid } from '@reduxjs/toolkit';
 
 export interface IQuestion {
-  // id_q
+  id: number;
   question: string;
   multipleChoice: boolean;
 }
@@ -52,6 +53,7 @@ const Quiz: FC = () => {
       {
         question: 'Энергия это:',
         multipleChoice: false,
+        id: 1,
       },
       [
         { id: 1, text: 'направленное движение электронов' },
@@ -68,6 +70,7 @@ const Quiz: FC = () => {
       {
         question: 'К традиционно используемым видам энергии относятся:',
         multipleChoice: true,
+        id: 2,
       },
       [
         { id: 11, text: 'солнечная' },
@@ -118,6 +121,7 @@ const Quiz: FC = () => {
           answers={value[1]}
           multipleChoice={value[0].multipleChoice}
           question={value[0].question}
+          questionId={value[0].id}
         />
       ))}
       <UserInfo

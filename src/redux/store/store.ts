@@ -1,5 +1,15 @@
+import { combineReducers } from 'redux';
 import { configureStore } from '@reduxjs/toolkit';
+import answerSlice from './answerSlice';
 
-// import userReducer from '../slices/UserSlice';
+const rootRducer = combineReducers({
+  answer: answerSlice,
+});
 
-// export const store = configureStore();
+export const store = configureStore({
+  reducer: rootRducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
+});
