@@ -1,34 +1,31 @@
-import React, { FC, useState } from 'react';
+import React, {FC} from 'react';
 import Question from '../question/question';
-import Answers, { IAnswer } from '../answers/answers';
+import Answers, {IAnswer} from '../answers/answers';
 import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
+import {IQuestion} from "../quiz-list/quiz-list";
 
 interface QuizElementProps {
-  question: string;
-  answers: IAnswer[];
-  multipleChoice: boolean;
-  questionId: number;
+    question: IQuestion;
+    answers: IAnswer[];
+    quizId: string;
 }
 
 const QuizElement: FC<QuizElementProps> = ({
-  question,
-  answers,
-  multipleChoice,
-  questionId,
-}) => {
-  return (
-    <>
-      <Box sx={{ mb: 3 }}>
-        <Question question={question} />
-        <Answers
-          answers={answers}
-          multipleChoice={multipleChoice}
-          questionId={questionId}
-        />
-      </Box>
-    </>
-  );
+                                               question,
+                                               answers,
+                                               quizId
+                                           }) => {
+    return (
+        <Box sx={{mb: 3}}>
+            <Question question={question}/>
+            <Answers
+                answers={answers}
+                multipleChoice={question.multipleChoice}
+                questionId={question.id}
+                quizId={quizId}
+            />
+        </Box>
+    );
 };
 
-export default QuizElement;
+export default React.memo(QuizElement);

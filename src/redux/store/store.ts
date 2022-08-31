@@ -1,15 +1,15 @@
 import { combineReducers } from 'redux';
 import { configureStore } from '@reduxjs/toolkit';
-import answerSlice from './answerSlice';
+import resultsSlice from '../slices/resultsSlice';
+import userSlice from '../slices/userSlice';
 
-const rootRducer = combineReducers({
-  answer: answerSlice,
+const rootReducer = combineReducers({
+  results: resultsSlice,
+  user: userSlice,
 });
 
 export const store = configureStore({
-  reducer: rootRducer,
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({
-      serializableCheck: false,
-    }),
+  reducer: rootReducer,
 });
+
+export type RootState = ReturnType<typeof store.getState>
