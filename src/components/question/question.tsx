@@ -1,13 +1,12 @@
 import React, {FC} from 'react';
 import Typography from '@mui/material/Typography';
-import {IQuestion} from "../quiz-list/quiz-list";
 
 interface QuestionProps {
-    question: IQuestion;
+    text: string;
 }
 
-const Question: FC<QuestionProps> = ({question}) => {
-    return <Typography variant="h6">{question.text}</Typography>;
+const Question: FC<QuestionProps> = ({text}) => {
+    return <Typography variant="h6">{text}</Typography>;
 };
 
 export default Question;

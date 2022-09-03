@@ -1,4 +1,4 @@
-import React, {FC, useState} from 'react';
+import React, {FC} from 'react';
 import {createTheme, ThemeProvider} from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import {Container, Grid, Link} from "@mui/material";
@@ -8,11 +8,6 @@ import QuizList from "../../components/quiz-list/quiz-list";
 const StudyPage: FC = () => {
 
     const mdTheme = createTheme();
-
-    // const [open, setOpen] = useState<boolean>(false);
-    // const toggleSidebar = () => {
-    //     setOpen(!open);
-    // };
 
     return (
         <ThemeProvider theme={mdTheme}>

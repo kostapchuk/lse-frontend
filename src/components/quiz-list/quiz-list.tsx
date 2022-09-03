@@ -1,30 +1,13 @@
-import React, {useEffect, useState} from 'react';
-import Quiz from "../quiz/quiz";
-import {IAnswer} from "../answers/answers";
+import React, {FC, useEffect, useState} from 'react';
 import {ApiService} from "../../api/ApiService";
+import QuizAndForm from "../quiz-and-form/quiz-and-form";
+import {IQuiz} from "../../types/types";
 
-export interface IQuestion {
-    id: string;
-    text: string;
-    multipleChoice: boolean;
-    cost: number;
-}
-
-export interface IQuestionAndAnswers {
-    question: IQuestion;
-    answers: IAnswer[];
-}
-
-export interface IQuiz {
-    id: string;
-    name: string;
-    questionsAndAnswers: IQuestionAndAnswers[];
-}
-
-const QuizList = () => {
+const QuizList: FC = () => {
     const [quizzes, setQuizzes] = useState<IQuiz[]>([]);
 
     useEffect(() => {
+        // TODO change creating class instance and change res type
         new ApiService().fetchQuizzes()
             .then((res: any) => {
                 setQuizzes(res.data)
@@ -32,9 +15,9 @@ const QuizList = () => {
     }, []);
 
     return (
-        <div>
-            {quizzes.map(q => <Quiz key={q.id} quiz={q}/>)}
-        </div>
+        <>
+            {quizzes.map(q => <QuizAndForm key={q.id} quiz={q}/>)}
+        </>
     );
 };
 
