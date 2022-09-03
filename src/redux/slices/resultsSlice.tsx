@@ -1,6 +1,8 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { useDispatch } from 'react-redux';
-import { RootState, store } from '../store/store';
+import {createSlice} from '@reduxjs/toolkit';
+import {useDispatch} from 'react-redux';
+import {store} from '../store/store';
+
+// todo simplify the code, move types
 
 export interface QuestionAndAnswersResult {
     questionId: string,
@@ -61,9 +63,7 @@ const resultsSlice = createSlice({
 });
 
 export default resultsSlice.reducer;
-export const { updateAnswer } = resultsSlice.actions;
-
-export const selectQuizzesResults = (state: RootState) => state.results
+export const {updateAnswer} = resultsSlice.actions;
 
 export type QuizzesResultsDispatch = typeof store.dispatch
 export const useQuizzesResultDispatch = () => useDispatch<QuizzesResultsDispatch>()

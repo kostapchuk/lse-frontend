@@ -1,4 +1,6 @@
-import { createSlice } from '@reduxjs/toolkit';
+import {createSlice} from '@reduxjs/toolkit';
+
+// todo interfaces, rename function
 
 export interface UserData {
     firstName: string;
@@ -27,10 +29,10 @@ const userSlice = createSlice({
     initialState,
     reducers: {
         setUserInfo: (state, actions) => {
-            state.user = { ...state.user, ...actions.payload }
+            state.user = {...state.user, ...actions.payload}
         }
     },
 });
 
 export default userSlice.reducer;
-export const { setUserInfo } = userSlice.actions;
+export const {setUserInfo} = userSlice.actions;
