@@ -12,13 +12,13 @@ interface QuizProps {
 const Quiz: FC<QuizProps> = ({quiz}) => {
     return (
         <>
-            <Typography variant="h5">{quiz.name}</Typography>
-            {quiz.items.map(item =>
+            <Typography variant="h5">{quiz.quizName}</Typography>
+            {quiz.quizItems.map(item =>
                 <QuizElement
                     key={nanoid()}
                     answers={item.answers}
                     question={item.question}
-                    quizId={quiz.id}
+                    quizId={quiz.quizId}
                 />
             )}
         </>

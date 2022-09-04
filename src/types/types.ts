@@ -2,7 +2,6 @@ export interface IQuestion {
     id: string;
     text: string;
     multipleChoice: boolean;
-    cost: number;
 }
 
 export interface IQuizItem {
@@ -11,9 +10,9 @@ export interface IQuizItem {
 }
 
 export interface IQuiz {
-    id: string;
-    name: string;
-    items: IQuizItem[];
+    quizId: string;
+    quizName: string;
+    quizItems: IQuizItem[];
 }
 
 export interface IAnswer {

@@ -9,7 +9,7 @@ export class ApiService {
 
     // TODO: change any type
     validateQuizResult = (value: any) => {
-        return ApiClient.post("/api/v1/quiz-result", { ...value })
+        return ApiClient.post("/api/v1/results", { ...value })
             .catch(e => console.log(e));
     };
 }

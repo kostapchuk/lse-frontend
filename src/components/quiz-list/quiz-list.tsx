@@ -16,7 +16,7 @@ const QuizList: FC = () => {
 
     return (
         <>
-            {quizzes.map(q => <QuizAndForm key={q.id} quiz={q}/>)}
+            {quizzes.map(q => <QuizAndForm key={q.quizId} quiz={q}/>)}
         </>
     );
 };
