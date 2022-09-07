@@ -12,4 +12,9 @@ export class ApiService {
         return ApiClient.post("/api/v1/results", { ...value })
             .catch(e => console.log(e));
     };
+
+    fetchResults = () => {
+        return ApiClient.get("/api/v1/results")
+            .catch(e => console.log(e));
+    };
 }

@@ -1,9 +1,9 @@
 import * as React from 'react';
 import {FC} from 'react';
-import StudyPage from "./pages/StudyPage/study-page";
+import AppRouter from "./components/AppRouter";
 
 const App: FC = () => {
-    return <StudyPage/>;
+    return <AppRouter/>;
 }
 
 export default App;
