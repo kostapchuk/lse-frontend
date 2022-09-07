@@ -1,8 +1,8 @@
-import React, {FC} from 'react';
+import React, {FC, useState} from 'react';
 import {ApiService} from "../../api/ApiService";
 import {useStore} from "react-redux";
 import {QuizResultState} from "../../redux/slices/resultsSlice";
-import {UserDataState} from "../../redux/slices/userSlice";
+import {UserData, UserDataState} from "../../redux/slices/userSlice";
 import Quiz from "../quiz/quiz";
 import UserForm from "../user-form/user-form";
 import {Button, Grid} from "@mui/material";
@@ -23,6 +23,10 @@ const QuizAndForm: FC<QuizAndFormProps> = ({quiz}) => {
 
     const store = useStore<RootStore>();
 
+    const isValidUser = (user: UserData) =>
+        user.lastName && user.lastName && user.email && user.group && user.faculty;
+
+
     const handleSubmit = (evt: any, quizId: string) => {
         evt.preventDefault();
         // TODO remove console.log & change creating class instance each time
@@ -31,12 +35,25 @@ const QuizAndForm: FC<QuizAndFormProps> = ({quiz}) => {
             alert("Please answer at least one question to submit the quiz results");
             return;
         }
+        const user = store.getState().user.user;
+        if (!isValidUser(user)) {
+            alert("Please fill out the form")
+            return
+        }
         new ApiService().validateQuizResult(
             {
                 quizResult: store.getState().results.results[answeredQuizIndex],
-                user: store.getState().user.user
+                user: user
             }
-        ).then((res: any) => alert(`Your result is ${res.data}`))
+        )
+            .then((res: any) => {
+                alert(`Your result is ${res.data}`)
+            })
+            .catch(e => {
+                if (e.response.status === 400) {
+                    alert('Validation failed. Please fill out the user form.')
+                }
+            });
     };
 
     return (

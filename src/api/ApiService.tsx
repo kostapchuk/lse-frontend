@@ -8,8 +8,6 @@ export class ApiService {
     }
 
     // TODO: change any type
-    validateQuizResult = (value: any) => {
-        return ApiClient.post("/api/v1/results", { ...value })
-            .catch(e => console.log(e));
-    };
+    validateQuizResult = (value: any) =>
+        ApiClient.post("/api/v1/results", {...value});
 }
