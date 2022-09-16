@@ -1,7 +1,7 @@
 import React, {FC, useEffect, useState} from 'react';
 import {ApiService} from "../../api/ApiService";
-import QuizAndForm from "../quiz-and-form/quiz-and-form";
 import {IQuiz} from "../../types/types";
+import Quiz from "../quiz/quiz";
 
 const QuizList: FC = () => {
     const [quizzes, setQuizzes] = useState<IQuiz[]>([]);
@@ -16,7 +16,7 @@ const QuizList: FC = () => {
 
     return (
         <>
-            {quizzes.map(q => <QuizAndForm key={q.quizId} quiz={q}/>)}
+            {quizzes.map(q => <Quiz key={q.quizId} quiz={q}/>)}
         </>
     );
 };

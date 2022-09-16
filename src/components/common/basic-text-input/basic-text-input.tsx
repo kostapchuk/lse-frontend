@@ -8,7 +8,7 @@ interface TextInputProps {
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const TextInput: FC<TextInputProps> = ({required = false, field, label, onChange}) => {
+const BasicTextInput: FC<TextInputProps> = ({required = false, field, label, onChange}) => {
     return (
         <TextField
             required={required}
@@ -20,4 +20,4 @@ const TextInput: FC<TextInputProps> = ({required = false, field, label, onChange
     );
 };
 
-export default TextInput;
+export default BasicTextInput;

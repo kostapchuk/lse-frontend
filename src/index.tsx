@@ -11,9 +11,9 @@ if (!rootElement) {
 }
 const root = createRoot(rootElement);
 root.render(
-    <Provider store={store}>
-        <BrowserRouter>
+    <BrowserRouter>
+        <Provider store={store}>
             <App/>
-        </BrowserRouter>
-    </Provider>
+        </Provider>
+    </BrowserRouter>
 );
