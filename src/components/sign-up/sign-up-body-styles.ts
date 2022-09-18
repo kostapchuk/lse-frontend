@@ -1,1 +1,1 @@
-export const textField = {marginTop: 10}
+export const textFieldStyle = {marginTop: 10}
