@@ -1,13 +1,22 @@
-import React from 'react';
-import {Route, Routes} from "react-router-dom";
-import StudyPage from "../pages/StudyPage/StudyPage";
-import ResultsPage from "../pages/ResultsPage/ResultsPage";
+import {Navigate, Route, Routes} from "react-router-dom";
+import { publicRoutes, RouteNames } from "./index";
+
 
 const AppRouter = () => {
     return (
         <Routes>
-            <Route element={<ResultsPage/>} path="results"/>
-            <Route element={<StudyPage/>} path=""/>
+            {
+                (publicRoutes).map((route) => (
+                    <Route
+                    path={route.path}
+                    element={route.component}
+                    key={route.path}/>
+                ))
+            }
+                <Route
+                path="*"
+                element={<Navigate to={RouteNames.STUDY} replace/>}
+            />
         </Routes>
     );
 };
