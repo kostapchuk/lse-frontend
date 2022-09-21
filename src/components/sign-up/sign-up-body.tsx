@@ -10,12 +10,10 @@ import { registerSchema } from './validation-form';
 import { RouteNames } from '../../routes';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 
-
-
 const SignUpBody: FC = () => {
 
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState<boolean>(false);
   const handleClickShowPassword = () => setShowPassword(!showPassword);
   const handleMouseDownPassword = () => setShowPassword(!showPassword);
   const handleClickShowConfirmPassword = () => setShowConfirmPassword(!showConfirmPassword);

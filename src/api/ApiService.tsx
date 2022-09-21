@@ -11,6 +11,6 @@ export class ApiService {
     validateQuizResult = (value: any) =>
         ApiClient.post("/api/v1/results", {...value});
 
-    registration = (value: any) =>
-        ApiClient.post("/api/v1/registration", {...value});
+    register = (value: any) =>
+        ApiClient.post("/api/v1/register", {...value});
 }
