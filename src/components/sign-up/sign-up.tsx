@@ -4,11 +4,11 @@ import SignUpHeader from './sign-up-header';
 import SignUpBody from './sign-up-body';
 import {paperStyle, signUpContainerStyle} from './sign-up-styles'
 
-const SignUp: FC = () => {
+const Registration: FC = () => {
 
     return (
         <Grid container style={signUpContainerStyle}>
-            <Grid item lg={3} md={4} sm={5} xs={10} xl={12}>
+            <Grid item lg={3} md={4} sm={5} xs={10} xl={2}>
                 <Paper elevation={20} style={paperStyle}>
                     <SignUpHeader/>
                     <SignUpBody/>
@@ -18,4 +18,4 @@ const SignUp: FC = () => {
     )
 }
 
-export default SignUp
+export default Registration

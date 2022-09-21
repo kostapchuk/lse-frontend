@@ -1,4 +1,4 @@
-import {Button, TextField} from '@mui/material'
+import {Button, IconButton, InputAdornment, TextField} from '@mui/material'
 import Box from "@mui/material/Box";
 import { FC, useEffect, useState } from "react";
 import {textFieldStyle} from './sign-up-body-styles'
@@ -8,10 +8,19 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useNavigate } from 'react-router-dom';
 import { registerSchema } from './validation-form';
 import { RouteNames } from '../../routes';
+import { Visibility, VisibilityOff } from '@mui/icons-material';
 
 
 
 const SignUpBody: FC = () => {
+
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const handleClickShowPassword = () => setShowPassword(!showPassword);
+  const handleMouseDownPassword = () => setShowPassword(!showPassword);
+  const handleClickShowConfirmPassword = () => setShowConfirmPassword(!showConfirmPassword);
+  const handleMouseDownConfirmPassword = () => setShowConfirmPassword(!showConfirmPassword);
+
     const [user, setUser] = useState({})
 
     const navigate = useNavigate()
@@ -41,7 +50,8 @@ const SignUpBody: FC = () => {
         component='form'
         noValidate
         autoComplete='off'
-        onSubmit={handleSubmit(onSubmitHandler)}>
+        onSubmit={handleSubmit(onSubmitHandler)}
+        >
             <TextField error={!!errors['firstName']}
                         required 
                         style={textFieldStyle} 
@@ -83,21 +93,43 @@ const SignUpBody: FC = () => {
                         required 
                         style={textFieldStyle} 
                         fullWidth 
-                        type='password'
+                        type={showPassword ? "text" : "password"}
                         label='Пароль' 
                         placeholder='Придумайте пароль'
                         helperText={errors['password'] ? errors['password'].message : ''}
-                        {...register('password')}/>
+                        {...register('password')}
+                        InputProps={{endAdornment: (
+                          <InputAdornment position="end">
+                            <IconButton
+                            aria-label="toggle password visibility"
+                            onClick={handleClickShowPassword}
+                            onMouseDown={handleMouseDownPassword}
+                            >
+                              {showPassword ? <Visibility /> : <VisibilityOff />}
+                            </IconButton>
+                          </InputAdornment>
+                        )}}/>
             <TextField error={!!errors['passwordConfirm']} 
                         required 
                         style={textFieldStyle} 
-                        type='password'
+                        type={showConfirmPassword ? "text" : "password"}
                         fullWidth 
                         label='Подтвердите пароль' placeholder='Подтвердите пароль'
                         helperText={
                             errors['passwordConfirm'] ? errors['passwordConfirm'].message : ''
                         }
                         {...register('passwordConfirm')}
+                        InputProps={{endAdornment: (
+                          <InputAdornment position="end">
+                            <IconButton
+                            aria-label="toggle password visibility"
+                            onClick={handleClickShowConfirmPassword}
+                            onMouseDown={handleMouseDownConfirmPassword}
+                            >
+                              {showConfirmPassword ? <Visibility /> : <VisibilityOff />}
+                            </IconButton>
+                          </InputAdornment>
+                        )}}
               />
             <Box mt={2} textAlign='center'>
                 <Button type='submit' 
