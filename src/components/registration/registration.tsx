@@ -1,8 +1,8 @@
 import {Grid, Paper} from '@mui/material'
 import {FC} from "react";
-import SignUpHeader from './sign-up-header';
-import SignUpBody from './sign-up-body';
-import {paperStyle, signUpContainerStyle} from './sign-up-styles'
+import RegistrationHeader from '../registration-header/registration-header';
+import RegistrationBody from '../registration-body/registration-body'
+import {paperStyle, signUpContainerStyle} from './registration-styles'
 
 const Registration: FC = () => {
 
@@ -10,8 +10,8 @@ const Registration: FC = () => {
         <Grid container style={signUpContainerStyle}>
             <Grid item lg={3} md={4} sm={5} xs={10} xl={2}>
                 <Paper elevation={20} style={paperStyle}>
-                    <SignUpHeader/>
-                    <SignUpBody/>
+                    <RegistrationHeader/>
+                    <RegistrationBody/>
                 </Paper>
             </Grid>
         </Grid>
