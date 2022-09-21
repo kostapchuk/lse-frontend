@@ -1,16 +1,16 @@
 import {Button, IconButton, InputAdornment, TextField} from '@mui/material'
 import Box from "@mui/material/Box";
 import { FC, useEffect, useState } from "react";
-import {textFieldStyle} from './sign-up-body-styles'
+import {textFieldStyle} from './registration-body-styles'
 import { TypeOf } from 'zod';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useNavigate } from 'react-router-dom';
-import { registerSchema } from './validation-form';
+import { registerSchema } from '../registration/validation-form';
 import { RouteNames } from '../../routes';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 
-const SignUpBody: FC = () => {
+const RegistrationBody: FC = () => {
 
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState<boolean>(false);
@@ -141,4 +141,4 @@ const SignUpBody: FC = () => {
 
 type RegisterInput = TypeOf<typeof registerSchema>;
 
-export default SignUpBody;
+export default RegistrationBody;

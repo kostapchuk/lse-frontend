@@ -1,9 +1,9 @@
 import Box from "@mui/material/Box";
 import {Avatar,Typography} from '@mui/material'
 import { FC } from "react";
-import {avatarStyle} from './sign-up-header-styles'
+import {avatarStyle} from './registration-header-styles'
 
-const SignUpHeader: FC = () => {
+const RegistrationHeader: FC = () => {
     return (
         <Box>
             <Avatar style={avatarStyle}/>
@@ -12,4 +12,4 @@ const SignUpHeader: FC = () => {
     )
 }
 
-export default SignUpHeader;
+export default RegistrationHeader;
