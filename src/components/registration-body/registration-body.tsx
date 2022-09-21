@@ -80,6 +80,13 @@ const RegistrationBody: FC = () => {
                         placeholder='Введите номер группы'
                         helperText={errors['groupNumber'] ? errors['groupNumber'].message : ''}
                         {...register('groupNumber')}/>
+            <TextField error={!!errors['course']}
+                        required 
+                        style={textFieldStyle} 
+                        fullWidth label='Курс'
+                        placeholder='Введите номер курса'
+                        helperText={errors['course'] ? errors['course'].message : ''}
+                        {...register('course')}/>
             <TextField error={!!errors['faculty']}
                         required 
                         style={textFieldStyle} 
