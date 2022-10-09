@@ -1,16 +1,19 @@
-import React, {FC} from 'react';
+import React, {FC, useState} from 'react';
 import {createTheme, ThemeProvider} from "@mui/material/styles";
 import Box from "@mui/material/Box";
-import {Container, Grid, Link} from "@mui/material";
+import {Button, Container, Grid, Link} from "@mui/material";
 import Typography from "@mui/material/Typography";
 import QuizList from "../../components/quiz-list/quiz-list";
+import Header from '../../components/header/header'
 
 const StudyPage: FC = () => {
 
     const mdTheme = createTheme();
+    const [results, setResults] = useState<any[string]>(['']);
 
     return (
         <ThemeProvider theme={mdTheme}>
+            <Header/>
             <Box sx={{display: 'flex'}}>
                 <Container maxWidth="lg" sx={{mt: 4, mb: 4}}>
                     <Grid container spacing={3} sx={{mb: 3, width: '100%', maxWidth: '100%'}}>
@@ -22,7 +25,14 @@ const StudyPage: FC = () => {
                                 карта дисциплины БЖЧ</Link>
                         </Typography>
                     </Grid>
-                    <QuizList/>
+                    <Box>
+                        <QuizList/>
+                    </Box>
+                        <Button onClick={() => setResults(console.log(results))} 
+                        style={{backgroundColor: '#1976d2'}}
+                        sx={{ my: 2, color: 'white', display: 'block' }}>
+                            Отправить
+                        </Button>
                 </Container>
             </Box>
         </ThemeProvider>

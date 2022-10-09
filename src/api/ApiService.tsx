@@ -1,3 +1,4 @@
+import { UserRole, UserType } from "../redux/slices/userSlice";
 import ApiClient from "./ApiClient";
 
 export class ApiService {
@@ -11,6 +12,43 @@ export class ApiService {
     validateQuizResult = (value: any) =>
         ApiClient.post("/api/v1/results", {...value});
 
-    register = (value: any) =>
-        ApiClient.post("/api/v1/register", {...value});
+    registerStudent = (value: any) =>
+        ApiClient.post("/api/v1/register-student", {
+            ...value, 
+            "userType": UserType.STUDENT,
+            "role": UserRole.ROLE_STUDENT,
+        });
+
+        registerTeacher = (value: any) =>
+        ApiClient.post("/api/v1/register-teacher", {
+            'headers': {
+                "firstName":"firstName",
+                "lastName": "lastName",
+                "email": "teacher",
+                "password": "teacher",
+                "faculty": "faculty",
+                "yearsOfExperience": 3,
+                "role": "ROLE_TEACHER",
+                "userType": "TEACHER"
+            }
+        });
+
+        loginStudent = (value: any) =>
+        ApiClient.post("/api/v1/login-student", {
+            ...value, 
+            "userType": UserType.STUDENT
+        } );
+
+        loginTeacher = (value: any) =>
+        ApiClient.post("/api/v1/login-teacher", {
+            ...value, 
+            "userType": UserType.TEACHER
+        }
+        );
+
+        refreshTokenTeacher = (value: any) =>
+        ApiClient.post("/api/v1/register-teacher", {
+            "refreshToken": "",
+            "userType": "TEACHER"
+        });
 }

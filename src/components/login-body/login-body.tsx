@@ -9,12 +9,14 @@ import { useNavigate } from 'react-router-dom';
 import { loginSchema } from '../login/validation-form';
 import { RouteNames } from '../../routes';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
+import { ApiService } from '../../api/ApiService';
 
 const LoginBody: FC = () => {
 
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const handleClickShowPassword = () => setShowPassword(!showPassword);
   const handleMouseDownPassword = () => setShowPassword(!showPassword);
+
 
     const [user, setUser] = useState({})
 
@@ -30,7 +32,11 @@ const LoginBody: FC = () => {
       });
 
       const onSubmitHandler: SubmitHandler<LoginInput> = (values) => {
-        setUser(values)
+        new ApiService().loginStudent(values)
+        .then((res:any) => {
+          console.log(res.body)
+          setUser(res.body)
+        })
       };
 
       useEffect(() => {
@@ -75,7 +81,7 @@ const LoginBody: FC = () => {
                           </InputAdornment>
                         )}}/>
             <Box mt={2} textAlign='center'>
-                <Button type='submit' 
+                <Button onClick={() => onSubmitHandler} type='submit' 
                         variant='contained'
                         color='primary'
                         >Войти</Button>

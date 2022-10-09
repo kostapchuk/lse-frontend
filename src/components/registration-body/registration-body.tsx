@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import { registerSchema } from '../registration/validation-form';
 import { RouteNames } from '../../routes';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
+import { ApiService } from '../../api/ApiService';
 
 const RegistrationBody: FC = () => {
 
@@ -33,7 +34,11 @@ const RegistrationBody: FC = () => {
       });
 
       const onSubmitHandler: SubmitHandler<RegisterInput> = (values) => {
-        setUser(values)
+        new ApiService().registerStudent(values)
+        .then((res:any) => {
+          console.log(res.body)
+          setUser(res.body)
+        })
       };
 
       useEffect(() => {
@@ -137,7 +142,7 @@ const RegistrationBody: FC = () => {
                         )}}
               />
             <Box mt={2} textAlign='center'>
-                <Button type='submit' 
+                <Button onClick={() => onSubmitHandler} type='submit' 
                         variant='contained'
                         color='primary'
                         >Зарегистрироваться</Button>
