@@ -20,7 +20,7 @@ export class ApiService {
         });
 
         registerTeacher = (value: any) =>
-        ApiClient.post("/api/v1/register-teacher", {
+        ApiClient.post("/register-teacher", {
             ...value, 
             "userType": UserType.TEACHER,
             "role": UserRole.ROLE_TEACHER,

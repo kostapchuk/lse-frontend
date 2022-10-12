@@ -1,17 +1,17 @@
 import {Button, IconButton, InputAdornment, TextField} from '@mui/material'
 import Box from "@mui/material/Box";
 import { FC, useEffect, useState } from "react";
-import {textFieldStyle} from './login-body-styles'
+import {textFieldStyle} from '../login-body-styles'
 import { TypeOf } from 'zod';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useNavigate } from 'react-router-dom';
-import { loginSchema } from '../login/validation-form';
-import { RouteNames } from '../../routes';
+import { loginSchema } from '../../login/validation-form';
+import { RouteNames } from '../../../routes';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
-import { ApiService } from '../../api/ApiService';
+import { ApiService } from '../../../api/ApiService';
 
-const LoginBody: FC = () => {
+const LoginForTeacherBody: FC = () => {
 
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const handleClickShowPassword = () => setShowPassword(!showPassword);
@@ -32,7 +32,7 @@ const LoginBody: FC = () => {
       });
 
       const onSubmitHandler: SubmitHandler<LoginInput> = (values) => {
-        new ApiService().loginStudent(values)
+        new ApiService().loginTeacher(values)
         .then((res:any) => {
           console.log(res.body)
           setUser(res.body)
@@ -93,4 +93,4 @@ const LoginBody: FC = () => {
 
 type LoginInput = TypeOf<typeof loginSchema>;
 
-export default LoginBody;
+export default LoginForTeacherBody;
