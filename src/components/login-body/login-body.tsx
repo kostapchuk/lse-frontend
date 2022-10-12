@@ -81,7 +81,8 @@ const LoginBody: FC = () => {
                           </InputAdornment>
                         )}}/>
             <Box mt={2} textAlign='center'>
-                <Button onClick={() => onSubmitHandler} type='submit' 
+                <Button onClick={() => onSubmitHandler} 
+                        type='submit' 
                         variant='contained'
                         color='primary'
                         >Войти</Button>

@@ -1,6 +1,6 @@
 import { object, string } from 'zod';
 
-export const registerSchema = object({
+export const registerSchemaTeacher = object({
     firstName: string()
     .min(1,'Укажите имя')
     .max(32, 'Имя должно содержать менее 32 символов'),
@@ -10,11 +10,8 @@ export const registerSchema = object({
     faculty: string()
     .min(1,'Укажите факультет')
     .max(32, 'Имя должно содержать менее 32 символов'),
-    group: string()
-    .min(1,'Укажите номер группы')
-    .max(32, 'Имя должно содержать менее 32 символов'),
-    course: string()
-    .min(1,'Укажите номер курса')
+    yearsOfExperience: string()
+    .min(1,'Укажите стаж')
     .max(2, 'Имя должно содержать менее 2 символов'),
     email: string().min(1,'Укажите email').email('Электронная почта недействительна'),
     password: string()

@@ -121,6 +121,18 @@ const Header = () => {
                 >
                   Тесты
                 </Button>
+                <Button
+                  onClick={() => navigate(RouteNames.LOGIN)}
+                  sx={{ my: 2, color: 'white', display: 'block' }}
+                >
+                  Войти
+                </Button>
+                <Button
+                  onClick={() => navigate(RouteNames.REGISTRATION)}
+                  sx={{ my: 2, color: 'white', display: 'block' }}
+                >
+                  Зарегистрироваться
+                </Button>
             </Box>
             <Box sx={{ flexGrow: 0 }}>
               <Tooltip title="Open menu">

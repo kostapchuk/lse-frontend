@@ -1,17 +1,25 @@
-import {Grid, Paper} from '@mui/material'
+import {Button, Grid, Paper} from '@mui/material'
 import {FC} from "react";
-import RegistrationHeader from '../registration-header/registration-header';
-import RegistrationBody from '../registration-body/registration-body'
-import {paperStyle, signUpContainerStyle} from './registration-styles'
+import { useNavigate } from 'react-router-dom';
+import { RouteNames } from '../../routes';
+import {paperStyle, signUpContainerStyle, registrationButtonStyle, registrationFormStyle} from './registration-styles'
 
 const Registration: FC = () => {
 
+    const navigate = useNavigate()
+
     return (
         <Grid container style={signUpContainerStyle}>
-            <Grid item lg={3} md={4} sm={5} xs={10} xl={2}>
+            <Grid item lg={3} md={4} sm={5} xs={10} xl={2} style={registrationFormStyle}>
                 <Paper elevation={20} style={paperStyle}>
-                    <RegistrationHeader/>
-                    <RegistrationBody/>
+                    <Button variant="contained" sx={{borderRadius: 50}} style={registrationButtonStyle}
+                     onClick={() => navigate(RouteNames.STUDENTREGISTRATION)}>
+                        Студент
+                    </Button>
+                    <Button variant="contained" sx={{borderRadius: 50}} style={registrationButtonStyle}
+                     onClick={() => navigate(RouteNames.TEACHERREGISTRATION)}>
+                        Преподаватель
+                    </Button>
                 </Paper>
             </Grid>
         </Grid>

@@ -1,17 +1,17 @@
 import {Button, IconButton, InputAdornment, TextField} from '@mui/material'
 import Box from "@mui/material/Box";
 import { FC, useEffect, useState } from "react";
-import {textFieldStyle} from './registration-body-styles'
+import {textFieldStyle} from '../registration-for-student/registration-body-styles'
 import { TypeOf } from 'zod';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useNavigate } from 'react-router-dom';
-import { registerSchema } from '../registration/validation-form';
-import { RouteNames } from '../../routes';
+import { registerSchemaTeacher } from '../validation-form-teacher';
+import { RouteNames } from '../../../routes';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
-import { ApiService } from '../../api/ApiService';
+import { ApiService } from '../../../api/ApiService';
 
-const RegistrationBody: FC = () => {
+const RegistrationForTeacherBody: FC = () => {
 
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState<boolean>(false);
@@ -30,14 +30,14 @@ const RegistrationBody: FC = () => {
         reset,
         handleSubmit,
       } = useForm<RegisterInput>({
-        resolver: zodResolver(registerSchema),
+        resolver: zodResolver(registerSchemaTeacher),
       });
 
       const onSubmitHandler: SubmitHandler<RegisterInput> = (values) => {
-        new ApiService().registerStudent(values)
+        new ApiService().registerTeacher(values)
         .then((res:any) => {
           console.log(res.body)
-          // setUser(res.body)
+          setUser(res.body)
         })
       };
 
@@ -78,20 +78,13 @@ const RegistrationBody: FC = () => {
                         label='Email' placeholder='Введите email'
                         helperText={errors['email'] ? errors['email'].message : ''}
                         {...register('email')}/>
-            <TextField error={!!errors['group']}
+            <TextField error={!!errors['yearsOfExperience']}
                         required 
                         style={textFieldStyle} 
-                        fullWidth label='Номер группы'
-                        placeholder='Введите номер группы'
-                        helperText={errors['group'] ? errors['group'].message : ''}
-                        {...register('group')}/>
-            <TextField error={!!errors['course']}
-                        required 
-                        style={textFieldStyle} 
-                        fullWidth label='Курс'
-                        placeholder='Введите номер курса'
-                        helperText={errors['course'] ? errors['course'].message : ''}
-                        {...register('course')}/>
+                        fullWidth label='Стаж'
+                        placeholder='Стаж работы'
+                        helperText={errors['yearsOfExperience'] ? errors['yearsOfExperience'].message : ''}
+                        {...register('yearsOfExperience')}/>
             <TextField error={!!errors['faculty']}
                         required 
                         style={textFieldStyle} 
@@ -151,6 +144,6 @@ const RegistrationBody: FC = () => {
     )
 }
 
-type RegisterInput = TypeOf<typeof registerSchema>;
+type RegisterInput = TypeOf<typeof registerSchemaTeacher>;
 
-export default RegistrationBody;
+export default RegistrationForTeacherBody;

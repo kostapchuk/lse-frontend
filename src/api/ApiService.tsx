@@ -21,16 +21,9 @@ export class ApiService {
 
         registerTeacher = (value: any) =>
         ApiClient.post("/api/v1/register-teacher", {
-            'headers': {
-                "firstName":"firstName",
-                "lastName": "lastName",
-                "email": "teacher",
-                "password": "teacher",
-                "faculty": "faculty",
-                "yearsOfExperience": 3,
-                "role": "ROLE_TEACHER",
-                "userType": "TEACHER"
-            }
+            ...value, 
+            "userType": UserType.TEACHER,
+            "role": UserRole.ROLE_TEACHER,
         });
 
         loginStudent = (value: any) =>
