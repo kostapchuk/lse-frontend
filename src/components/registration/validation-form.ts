@@ -10,7 +10,7 @@ export const registerSchema = object({
     faculty: string()
     .min(1,'Укажите факультет')
     .max(32, 'Имя должно содержать менее 32 символов'),
-    groupNumber: string()
+    group: string()
     .min(1,'Укажите номер группы')
     .max(32, 'Имя должно содержать менее 32 символов'),
     course: string()

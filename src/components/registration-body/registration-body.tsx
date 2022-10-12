@@ -37,7 +37,7 @@ const RegistrationBody: FC = () => {
         new ApiService().registerStudent(values)
         .then((res:any) => {
           console.log(res.body)
-          setUser(res.body)
+          // setUser(res.body)
         })
       };
 
@@ -78,13 +78,13 @@ const RegistrationBody: FC = () => {
                         label='Email' placeholder='Введите email'
                         helperText={errors['email'] ? errors['email'].message : ''}
                         {...register('email')}/>
-            <TextField error={!!errors['groupNumber']}
+            <TextField error={!!errors['group']}
                         required 
                         style={textFieldStyle} 
                         fullWidth label='Номер группы'
                         placeholder='Введите номер группы'
-                        helperText={errors['groupNumber'] ? errors['groupNumber'].message : ''}
-                        {...register('groupNumber')}/>
+                        helperText={errors['group'] ? errors['group'].message : ''}
+                        {...register('group')}/>
             <TextField error={!!errors['course']}
                         required 
                         style={textFieldStyle} 

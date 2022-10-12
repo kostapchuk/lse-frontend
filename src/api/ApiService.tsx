@@ -13,7 +13,7 @@ export class ApiService {
         ApiClient.post("/api/v1/results", {...value});
 
     registerStudent = (value: any) =>
-        ApiClient.post("/api/v1/register-student", {
+        ApiClient.post("/register-student", {
             ...value, 
             "userType": UserType.STUDENT,
             "role": UserRole.ROLE_STUDENT,
@@ -34,7 +34,7 @@ export class ApiService {
         });
 
         loginStudent = (value: any) =>
-        ApiClient.post("/api/v1/login-student", {
+        ApiClient.post("/login", {
             ...value, 
             "userType": UserType.STUDENT
         } );
