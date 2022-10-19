@@ -13,11 +13,11 @@ const Registration: FC = () => {
             <Grid item lg={3} md={4} sm={5} xs={10} xl={2} style={registrationFormStyle}>
                 <Paper elevation={20} style={paperStyle}>
                     <Button variant="contained" sx={{borderRadius: 50}} style={registrationButtonStyle}
-                     onClick={() => navigate(RouteNames.STUDENTREGISTRATION)}>
+                     onClick={() => navigate(RouteNames.STUDENT_REGISTRATION)}>
                         Студент
                     </Button>
                     <Button variant="contained" sx={{borderRadius: 50}} style={registrationButtonStyle}
-                     onClick={() => navigate(RouteNames.TEACHERREGISTRATION)}>
+                     onClick={() => navigate(RouteNames.TEACHER_REGISTRATION)}>
                         Преподаватель
                     </Button>
                 </Paper>

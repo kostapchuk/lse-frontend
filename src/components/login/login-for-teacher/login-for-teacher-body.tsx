@@ -10,6 +10,8 @@ import { loginSchema } from '../../login/validation-form';
 import { RouteNames } from '../../../routes';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { ApiService } from '../../../api/ApiService';
+import {setUser} from "../../../redux/slices/userSlice";
+import {useDispatch} from "react-redux";
 
 const LoginForTeacherBody: FC = () => {
 
@@ -17,10 +19,8 @@ const LoginForTeacherBody: FC = () => {
   const handleClickShowPassword = () => setShowPassword(!showPassword);
   const handleMouseDownPassword = () => setShowPassword(!showPassword);
 
-
-    const [user, setUser] = useState({})
-
     const navigate = useNavigate()
+    const dispatch = useDispatch();
 
     const {
         register,
@@ -34,8 +34,7 @@ const LoginForTeacherBody: FC = () => {
       const onSubmitHandler: SubmitHandler<LoginInput> = (values) => {
         new ApiService().loginTeacher(values)
         .then((res:any) => {
-          console.log(res.body)
-          setUser(res.body)
+          dispatch(setUser(res.data))
         })
       };
 

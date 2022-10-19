@@ -37,7 +37,7 @@ const RegistrationForTeacherBody: FC = () => {
         new ApiService().registerTeacher(values)
         .then((res:any) => {
           console.log(res.body)
-          setUser(res.body)
+          // setUser(res.body)
         })
       };
 

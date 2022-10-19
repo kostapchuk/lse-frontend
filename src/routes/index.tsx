@@ -12,10 +12,10 @@ export const RouteNames = {
     RESULTS: '/results',
     REGISTRATION: '/registration',
     LOGIN: '/login',
-    TEACHERREGISTRATION: '/registration/teacher',
-    STUDENTREGISTRATION: '/registration/student',
-    TEACHERLOGIN: '/login/teacher',
-    STUDENTLOGIN: '/login/student',
+    TEACHER_REGISTRATION: '/registration/teacher',
+    STUDENT_REGISTRATION: '/registration/student',
+    TEACHER_LOGIN: '/login/teacher',
+    STUDENT_LOGIN: '/login/student',
 }
 
 export const publicRoutes = [
@@ -23,8 +23,8 @@ export const publicRoutes = [
     {path: RouteNames.RESULTS, component: <ResultsPage/>},
     {path: RouteNames.REGISTRATION, component: <RegistrationPage/>},
     {path: RouteNames.LOGIN, component: <LoginPage/>},
-    {path: RouteNames.TEACHERREGISTRATION, component: <RegistrationForTeacher/>},
-    {path: RouteNames.STUDENTREGISTRATION, component: <RegistrationForStudent/>},
-    {path: RouteNames.TEACHERLOGIN, component: <LoginForTeacher/>},
-    {path: RouteNames.STUDENTLOGIN, component: <LoginForStudent/>},
+    {path: RouteNames.TEACHER_REGISTRATION, component: <RegistrationForTeacher/>},
+    {path: RouteNames.STUDENT_REGISTRATION, component: <RegistrationForStudent/>},
+    {path: RouteNames.TEACHER_LOGIN, component: <LoginForTeacher/>},
+    {path: RouteNames.STUDENT_LOGIN, component: <LoginForStudent/>},
 ]
