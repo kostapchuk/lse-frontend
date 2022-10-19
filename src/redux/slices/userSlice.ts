@@ -44,7 +44,6 @@ const userSlice = createSlice({
             state.accessToken = action.payload.accessToken.value;
             state.refreshToken = action.payload.refreshToken.value;
             state.id = action.payload.id;
-            console.log("in set user")
         },
         removeUser(state) {
             state.type = null;
