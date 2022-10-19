@@ -1,7 +1,7 @@
 import {Button, IconButton, InputAdornment, TextField} from '@mui/material'
 import Box from "@mui/material/Box";
 import { FC, useEffect, useState } from "react";
-import {textFieldStyle} from './registration-body-styles'
+import {textFieldStyle} from '../registration-body-styles'
 import { TypeOf } from 'zod';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';

@@ -1,7 +1,7 @@
 import {Grid, Paper} from '@mui/material'
 import RegistrationHeader from "../../registration-header/registration-header"
 import { paperStyle, signUpContainerStyle } from "../registration-styles";
-import RegistrationForStudentBody from './registration-body';
+import RegistrationForStudentBody from './registration-for-student-body';
 
 const RegistrationForStudent = () => {
     
