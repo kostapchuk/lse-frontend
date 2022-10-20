@@ -8,10 +8,10 @@ const QuizList: FC = () => {
 
     useEffect(() => {
         // TODO change creating class instance and change res type
-        new ApiService().fetchQuizzes()
-            .then((res: any) => {
-                setQuizzes(res.data)
-            })
+        // new ApiService().fetchQuizzes()
+        //     .then((res: any) => {
+        //         setQuizzes(res.data)
+        //     })
     }, []);
 
     return (

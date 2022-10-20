@@ -34,10 +34,7 @@ const LoginForStudentBody: FC = () => {
     const onSubmitHandler: SubmitHandler<LoginInput> = (values) => {
         new ApiService().loginStudent(values)
             .then((res: any) => {
-                dispatch(setUser(res.body))
-            })
-            .catch((e: any) => {
-                console.log(e)
+                dispatch(setUser(res.data))
             })
     };
 
