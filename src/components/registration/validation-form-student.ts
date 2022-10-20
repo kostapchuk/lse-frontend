@@ -16,9 +16,6 @@ export const registerSchemaStudent = object({
     course: string()
     .min(1,'Укажите номер курса')
     .max(2, 'Имя должно содержать менее 2 символов'),
-    yearsOfExperience: string()
-    .min(1,'Укажите стаж')
-    .max(2, 'Имя должно содержать менее 2 символов'),
     email: string().min(1,'Укажите email').email('Электронная почта недействительна'),
     password: string()
     .min(1,'Требуется пароль')
