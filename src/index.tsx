@@ -1,9 +1,10 @@
 import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
+import { PersistGate } from 'redux-persist/integration/react';
 
 import App from './App';
-import { store } from './redux/store/store';
+import { store, persistor } from './redux/store/store';
 
 const rootElement = document.getElementById('root');
 if (!rootElement) {
@@ -13,7 +14,9 @@ const root = createRoot(rootElement);
 root.render(
     <BrowserRouter>
         <Provider store={store}>
+        <PersistGate persistor={persistor}>
             <App />
+        </PersistGate>
         </Provider>
     </BrowserRouter>
 );
