@@ -9,7 +9,7 @@ import {useNavigate} from 'react-router-dom';
 import {registerSchemaTeacher} from '../validation-form-teacher';
 import {RouteNames} from '../../../routes';
 import {Visibility, VisibilityOff} from '@mui/icons-material';
-import {ApiService} from '../../../api/ApiService';
+import { useRegisterTeacherMutation } from '../../../redux/slices/quizzesApiSlice';
 
 const RegistrationForTeacherBody: FC = () => {
 
@@ -20,7 +20,9 @@ const RegistrationForTeacherBody: FC = () => {
     const handleClickShowConfirmPassword = () => setShowConfirmPassword(!showConfirmPassword);
     const handleMouseDownConfirmPassword = () => setShowConfirmPassword(!showConfirmPassword);
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+
+    const [registerTeacher] = useRegisterTeacherMutation();
 
     const {
         register,
@@ -32,13 +34,7 @@ const RegistrationForTeacherBody: FC = () => {
     });
 
     const onSubmitHandler: SubmitHandler<RegisterInput> = (values) => {
-        console.log(values)
-        new ApiService().registerTeacher(values)
-            .then((res: any) => {
-                console.log(res)
-            }).catch((e: any) => {
-            console.log(e)
-        })
+        registerTeacher(values)
     };
 
     useEffect(() => {

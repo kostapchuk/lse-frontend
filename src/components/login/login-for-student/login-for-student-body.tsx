@@ -9,9 +9,9 @@ import {useNavigate} from 'react-router-dom';
 import {loginSchema} from '../../login/validation-form';
 import {RouteNames} from '../../../routes';
 import {Visibility, VisibilityOff} from '@mui/icons-material';
-import {ApiService} from '../../../api/ApiService';
-import {setUser} from "../../../redux/slices/userSlice";
+import { setCredentials, UserType } from "../../../redux/slices/authSlice";
 import {useDispatch} from "react-redux";
+import { useLoginMutation } from '../../../redux/slices/authApiSlice';
 
 const LoginForStudentBody: FC = () => {
 
@@ -19,8 +19,11 @@ const LoginForStudentBody: FC = () => {
     const handleClickShowPassword = () => setShowPassword(!showPassword);
     const handleMouseDownPassword = () => setShowPassword(!showPassword);
 
-    const navigate = useNavigate()
-    const dispatch = useDispatch()
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+
+    const [login] = useLoginMutation();
+    const [errorMsg, setErrorMsg] = useState<string>();
 
     const {
         register,
@@ -31,11 +34,22 @@ const LoginForStudentBody: FC = () => {
         resolver: zodResolver(loginSchema),
     });
 
-    const onSubmitHandler: SubmitHandler<LoginInput> = (values) => {
-        new ApiService().loginStudent(values)
-            .then((res: any) => {
-                dispatch(setUser(res.data))
-            })
+    const onSubmitHandler: SubmitHandler<LoginInput> = async (values) => {
+        try {
+            const userData = await login({ ...values, userType: UserType.STUDENT }).unwrap();
+            dispatch(setCredentials(userData));
+            navigate(RouteNames.STUDY);
+        } catch (err: any) {
+            if (!err?.originalStatus) {
+                setErrorMsg('No server response');
+            } else if (err.originalStatus == 400) {
+                setErrorMsg('Missing email or password');
+            } else if (err.originalStatus == 401) {
+                setErrorMsg('Unauthorized');
+            } else {
+                setErrorMsg('Login failed');
+            }
+        }
     };
 
     useEffect(() => {

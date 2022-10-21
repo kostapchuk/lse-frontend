@@ -1,8 +1,13 @@
 import { combineReducers } from "@reduxjs/toolkit";
-import resultsSlice from "../slices/resultsSlice";
-import userSlice from "../slices/userSlice";
+import resultsReducer from "../slices/resultsSlice";
+import authReducer from "../slices/authSlice";
+import { api } from "../slices/apiSlice";
 
 export const rootReducer = combineReducers({
-    results: resultsSlice,
-    user: userSlice,
-});
+        [api.reducerPath]: api.reducer,
+        auth: authReducer,
+        results: resultsReducer,
+    });
+
+
+export type RootState = ReturnType<typeof rootReducer>

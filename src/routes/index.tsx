@@ -6,9 +6,11 @@ import RegistrationForTeacher from "../components/registration/registration-for-
 import RegistrationForStudent from "../components/registration/registration-for-student/registration-for-student";
 import LoginForTeacher from "../components/login/login-for-teacher/login-for-teacher";
 import LoginForStudent from "../components/login/login-for-student/login-for-student";
+import QuizPage from "../pages/QuizPage/QuizPage";
 
 export const RouteNames = {
     STUDY: '/',
+    QUIZ: '/quizzes/:quizId',
     RESULTS: '/results',
     REGISTRATION: '/registration',
     LOGIN: '/login',
@@ -19,12 +21,16 @@ export const RouteNames = {
 }
 
 export const publicRoutes = [
-    {path: RouteNames.STUDY, component: <StudyPage/>},
-    {path: RouteNames.RESULTS, component: <ResultsPage/>},
-    {path: RouteNames.REGISTRATION, component: <RegistrationPage/>},
-    {path: RouteNames.LOGIN, component: <LoginPage/>},
-    {path: RouteNames.TEACHER_REGISTRATION, component: <RegistrationForTeacher/>},
-    {path: RouteNames.STUDENT_REGISTRATION, component: <RegistrationForStudent/>},
-    {path: RouteNames.TEACHER_LOGIN, component: <LoginForTeacher/>},
-    {path: RouteNames.STUDENT_LOGIN, component: <LoginForStudent/>},
+    { path: RouteNames.REGISTRATION, component: <RegistrationPage /> },
+    { path: RouteNames.LOGIN, component: <LoginPage /> },
+    { path: RouteNames.TEACHER_REGISTRATION, component: <RegistrationForTeacher /> },
+    { path: RouteNames.STUDENT_REGISTRATION, component: <RegistrationForStudent /> },
+    { path: RouteNames.TEACHER_LOGIN, component: <LoginForTeacher /> },
+    { path: RouteNames.STUDENT_LOGIN, component: <LoginForStudent /> },
+]
+
+export const protectedRoutes = [
+    { path: RouteNames.STUDY, component: <StudyPage /> },
+    { path: RouteNames.QUIZ, component: <QuizPage /> },
+    { path: RouteNames.RESULTS, component: <ResultsPage /> },
 ]
