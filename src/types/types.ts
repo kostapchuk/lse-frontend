@@ -23,11 +23,8 @@ export interface IAnswer {
 export interface IResults {
   id: string;
   quizName: string;
-  firstName: string;
-  lastName: string;
-  group: string;
-  faculty: string;
   email: string;
   score: number;
   maxScore: number;
+  createdDate: Date;
 }
