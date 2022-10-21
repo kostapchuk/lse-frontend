@@ -10,7 +10,7 @@ interface ResultsBodyProps {
 const ResultsBody: FC<ResultsBodyProps> = ({results}) => {
     return (
         <TableBody>
-            {results.map(result => <ResultsRow result={result}/>)}
+            {results.map(result => <ResultsRow key={result.id} result={result}/>)}
         </TableBody>
     );
 };

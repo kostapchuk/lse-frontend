@@ -1,22 +1,16 @@
-import React, {FC, useEffect, useState} from 'react';
-import {ApiService} from "../../api/ApiService";
+import React, {FC,} from 'react';
+import {Link} from 'react-router-dom';
+import {useGetQuizzesQuery} from '../../redux/slices/quizzesApiSlice';
 import {IQuiz} from "../../types/types";
-import Quiz from "../quiz/quiz";
 
 const QuizList: FC = () => {
-    const [quizzes, setQuizzes] = useState<IQuiz[]>([]);
-
-    useEffect(() => {
-        // TODO change creating class instance and change res type
-        new ApiService().fetchQuizzes()
-            .then((res: any) => {
-                setQuizzes(res.data)
-            })
-    }, []);
+    const {
+        data: quizzes,
+    } = useGetQuizzesQuery()
 
     return (
         <>
-            {quizzes.map(q => <Quiz key={q.quizId} quiz={q}/>)}
+            {quizzes?.map((q: IQuiz) => <Link key={q.quizId} to={`/quizzes/${q.quizId}`}> {q.quizName} </Link>)}
         </>
     );
 };

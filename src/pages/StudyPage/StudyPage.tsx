@@ -1,7 +1,7 @@
-import React, {FC} from 'react';
+import React, {FC, useState} from 'react';
 import {createTheme, ThemeProvider} from "@mui/material/styles";
 import Box from "@mui/material/Box";
-import {Container, Grid, Link} from "@mui/material";
+import {Button, Container, Grid, Link} from "@mui/material";
 import Typography from "@mui/material/Typography";
 import QuizList from "../../components/quiz-list/quiz-list";
 
@@ -22,7 +22,9 @@ const StudyPage: FC = () => {
                                 карта дисциплины БЖЧ</Link>
                         </Typography>
                     </Grid>
-                    <QuizList/>
+                    <Box>
+                        <QuizList/>
+                    </Box>
                 </Container>
             </Box>
         </ThemeProvider>
