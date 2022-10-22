@@ -8,10 +8,6 @@ const ResultsHeader: FC = () => {
         <TableHead>
             <TableRow>
                 <TableCell align="left">Тест</TableCell>
-                <TableCell align="left">Имя</TableCell>
-                <TableCell align="left">Фамилия</TableCell>
-                <TableCell align="left">Группа</TableCell>
-                <TableCell align="left">Факультет</TableCell>
                 <TableCell align="left">Email</TableCell>
                 <TableCell align="left">Балл</TableCell>
                 <TableCell align="left">Максимальный балл</TableCell>

@@ -9,7 +9,7 @@ import {useNavigate} from 'react-router-dom';
 import {registerSchemaTeacher} from '../validation-form-teacher';
 import {RouteNames} from '../../../routes';
 import {Visibility, VisibilityOff} from '@mui/icons-material';
-import { useRegisterTeacherMutation } from '../../../redux/slices/quizzesApiSlice';
+import { useRegisterTeacherMutation } from '../../../redux/slices/usersApiSlice';
 
 const RegistrationForTeacherBody: FC = () => {
 

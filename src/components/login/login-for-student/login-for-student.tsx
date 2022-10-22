@@ -1,5 +1,5 @@
 import {Grid, Paper} from '@mui/material'
-import LoginHeader from '../../login-header/login-header';
+import LoginHeader from '../login-header/login-header';
 import {paperStyle, signUpContainerStyle} from '../login-styles'
 import LoginForStudentBody from './login-for-student-body';
 

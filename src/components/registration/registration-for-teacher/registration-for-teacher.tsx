@@ -1,5 +1,5 @@
 import {Grid, Paper} from '@mui/material'
-import RegistrationHeader from "../../registration-header/registration-header"
+import RegistrationHeader from "../registration-header/registration-header"
 import RegistrationForTeacherBody from "./registration-for-teacher-body";
 import { paperStyle, signUpContainerStyle } from "../registration-styles";
 

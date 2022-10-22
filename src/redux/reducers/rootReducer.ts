@@ -1,10 +1,12 @@
 import { combineReducers } from "@reduxjs/toolkit";
-import resultsReducer from "../slices/resultsSlice";
-import authReducer from "../slices/authSlice";
-import { api } from "../slices/apiSlice";
+import resultsReducer from "../slices/state/resultsSlice";
+import authReducer from "../slices/state/authSlice";
+import {protectedApi, } from "../slices/protectedApiSlice";
+import {publicApi} from "../slices/publicApiSlice";
 
 export const rootReducer = combineReducers({
-        [api.reducerPath]: api.reducer,
+        [protectedApi.reducerPath]: protectedApi.reducer,
+        [publicApi.reducerPath]: publicApi.reducer,
         auth: authReducer,
         results: resultsReducer,
     });
