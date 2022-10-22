@@ -6,7 +6,7 @@ import { IQuiz } from "../../types/types";
 import { nanoid } from "@reduxjs/toolkit";
 import { Button } from '@mui/material';
 import { store } from '../../redux/store/store';
-import { useSubmitResultMutation } from '../../redux/slices/quizzesApiSlice';
+import { useSubmitResultMutation } from '../../redux/slices/resultsApiSlice';
 import { useSelector } from 'react-redux';
 
 interface QuizProps {

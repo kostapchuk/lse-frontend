@@ -11,7 +11,7 @@ import { RouteNames } from '../../../routes';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { useDispatch } from "react-redux";
 import { useLoginMutation } from "../../../redux/slices/authApiSlice";
-import { setCredentials, UserType } from "../../../redux/slices/authSlice";
+import { setCredentials, UserType } from "../../../redux/slices/state/authSlice";
 
 const LoginForTeacherBody: FC = () => {
 

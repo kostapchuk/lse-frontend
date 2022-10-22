@@ -9,7 +9,7 @@ import {useNavigate} from 'react-router-dom';
 import {loginSchema} from '../../login/validation-form';
 import {RouteNames} from '../../../routes';
 import {Visibility, VisibilityOff} from '@mui/icons-material';
-import { setCredentials, UserType } from "../../../redux/slices/authSlice";
+import { setCredentials, UserType } from "../../../redux/slices/state/authSlice";
 import {useDispatch} from "react-redux";
 import { useLoginMutation } from '../../../redux/slices/authApiSlice';
 

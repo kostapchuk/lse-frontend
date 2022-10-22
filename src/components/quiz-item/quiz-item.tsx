@@ -2,7 +2,7 @@ import React, {FC} from 'react';
 import Question from '../question/question';
 import Box from '@mui/material/Box';
 import {IAnswer, IQuestion} from "../../types/types";
-import {updateAnswer} from "../../redux/slices/resultsSlice";
+import {updateAnswer} from "../../redux/slices/state/resultsSlice";
 import {useDispatch} from "react-redux";
 import {Checkbox, Radio} from "@mui/material";
 import FormAnswer from "../form-answer/form-answer";

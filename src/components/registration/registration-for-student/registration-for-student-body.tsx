@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import { registerSchemaStudent } from '../validation-form-student';
 import { RouteNames } from '../../../routes';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
-import { useRegisterStudentMutation } from '../../../redux/slices/quizzesApiSlice';
+import { useRegisterStudentMutation } from '../../../redux/slices/usersApiSlice';
 
 const RegistrationForStudentBody: FC = () => {
 
