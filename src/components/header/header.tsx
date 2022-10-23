@@ -24,7 +24,7 @@ const Header = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
-  const {isAuth, id} = useAuth();
+  const {isAuth, userType, isRoleTeacher} = useAuth();
 
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
@@ -127,32 +127,21 @@ const Header = () => {
             >
               Главная
             </Button>
-            <Button
-              onClick={() => navigate(RouteNames.LOGIN)}
-              sx={{ my: 2, color: 'white', display: 'block' }}
-            >
-              Войти
-            </Button>
-            <Button
-              onClick={() => navigate(RouteNames.REGISTRATION)}
-              sx={{ my: 2, color: 'white', display: 'block' }}
-            >
-              Зарегистрироваться
-            </Button>
-            <Button
-              onClick={() => navigate(RouteNames.RESULTS)}
-              sx={{ my: 2, color: 'white', display: 'block' }}
+            {isRoleTeacher &&
+                <Button
+                onClick={() => navigate(RouteNames.RESULTS)}
+                sx={{ my: 2, color: 'white', display: 'block' }}
             >
               Результаты
-            </Button>
+            </Button>}
           </Box>
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open menu">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-              <Typography 
+              <Typography
                   variant="h5"
                   noWrap
-                  >{id}</Typography>
+                  >{userType}</Typography>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
               </IconButton>
             </Tooltip>
@@ -173,11 +162,11 @@ const Header = () => {
               onClose={handleCloseUserMenu}
             >
               <MenuList>
-                <MenuItem style={{ display: 'block' }} onClick={handleCloseUserMenu}>
-                  <Button style={{ color: 'black' }}>
-                    Профиль
-                  </Button>
-                </MenuItem>
+                {/*<MenuItem style={{ display: 'block' }} onClick={handleCloseUserMenu}>*/}
+                {/*  <Button style={{ color: 'black' }}>*/}
+                {/*    Профиль*/}
+                {/*  </Button>*/}
+                {/*</MenuItem>*/}
                 <MenuItem
                   style={{ display: 'block' }}
                   onClick={handleCloseUserMenu}>
@@ -201,7 +190,6 @@ const Header = () => {
           variant="h6"
           noWrap
           component="a"
-          href="/"
           sx={{
             mr: 2,
             display: { xs: 'none', md: 'flex' },
@@ -217,12 +205,6 @@ const Header = () => {
 
         <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-          <Button
-            onClick={() => navigate(RouteNames.STUDY)}
-            sx={{ my: 2, color: 'white', display: 'block' }}
-          >
-            Главная
-          </Button>
           <Button
             onClick={() => navigate(RouteNames.LOGIN)}
             sx={{ my: 2, color: 'white', display: 'block' }}

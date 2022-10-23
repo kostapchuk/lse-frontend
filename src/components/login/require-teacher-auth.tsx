@@ -1,12 +1,12 @@
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 import {useAuth} from "../../redux/hooks/use-auth";
 
-const RequireAuth = () => {
-    const {isAuth} = useAuth();
+const RequireTeacherAuth = () => {
+    const {isAuth, isRoleTeacher} = useAuth();
     const location = useLocation();
-    return isAuth
+    return isAuth && isRoleTeacher
         ? <Outlet />
         : <Navigate to={'/login'} state={{ from: location }} replace />
 }
 
-export default RequireAuth;
+export default RequireTeacherAuth;
