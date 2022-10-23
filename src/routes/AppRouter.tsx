@@ -1,6 +1,7 @@
 import { Navigate, Route, Routes } from "react-router-dom";
+import RequireTeacherAuth from "../components/login/require-teacher-auth";
+import {protectedRoutes, publicRoutes, RouteNames, teacherRoutes} from "./index";
 import RequireAuth from "../components/login/require-auth";
-import { protectedRoutes, publicRoutes, RouteNames } from "./index";
 
 const AppRouter = () => {
     return (
@@ -22,10 +23,17 @@ const AppRouter = () => {
                         key={route.path} />
                 ))}
             </Route>
-
+            <Route element={<RequireTeacherAuth />}>
+                {(teacherRoutes).map((route) => (
+                    <Route
+                        path={route.path}
+                        element={route.component}
+                        key={route.path} />
+                ))}
+            </Route>
             <Route
                 path="*"
-                element={<Navigate to={RouteNames.REGISTRATION} replace />}
+                element={<Navigate to={RouteNames.NOT_FOUND} replace />}
             />
         </Routes>
     );
