@@ -1,5 +1,5 @@
 import StudyPage from "../pages/StudyPage/StudyPage";
-import ResultsPage from "../pages/ResultsPage/ResultsPage";
+import UserResultsPage from "../pages/UserResultsPage/UserResultsPage";
 import RegistrationPage from '../pages/RegistrationPage/RegistrationPage';
 import LoginPage from "../pages/LoginPage/LoginPage";
 import RegistrationForTeacher from "../components/registration/registration-for-teacher/registration-for-teacher";
@@ -8,11 +8,13 @@ import LoginForTeacher from "../components/login/login-for-teacher/login-for-tea
 import LoginForStudent from "../components/login/login-for-student/login-for-student";
 import QuizPage from "../pages/QuizPage/QuizPage";
 import NotFoundPage from "../pages/NotFoundPage";
+import ResultsPage from "../pages/ResultsPage/ResultsPage";
 
 export const RouteNames = {
     STUDY: '/',
     QUIZ: '/quizzes/:quizId',
     RESULTS: '/results',
+    RESULTS_CURRENT_USER: '/results/me',
     REGISTRATION: '/registration',
     LOGIN: '/login',
     NOT_FOUND: '/not-found',
@@ -35,6 +37,7 @@ export const publicRoutes = [
 export const protectedRoutes = [
     { path: RouteNames.STUDY, component: <StudyPage /> },
     { path: RouteNames.QUIZ, component: <QuizPage /> },
+    { path: RouteNames.RESULTS_CURRENT_USER, component: <UserResultsPage /> },
 ]
 
 export const teacherRoutes = [

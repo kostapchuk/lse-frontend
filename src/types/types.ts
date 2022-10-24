@@ -26,5 +26,5 @@ export interface IResults {
   email: string;
   score: number;
   maxScore: number;
-  createdDate: Date;
+  createdDate: string;
 }

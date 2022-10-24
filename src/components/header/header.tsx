@@ -134,6 +134,12 @@ const Header = () => {
             >
               Результаты
             </Button>}
+                  <Button
+                      onClick={() => navigate(RouteNames.RESULTS_CURRENT_USER)}
+                      sx={{ my: 2, color: 'white', display: 'block' }}
+                  >
+                      Мои результаты
+                  </Button>
           </Box>
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open menu">
@@ -141,6 +147,7 @@ const Header = () => {
               <Typography
                   variant="h5"
                   noWrap
+                  sx={{ mr: 2 }}
                   >{userType}</Typography>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
               </IconButton>

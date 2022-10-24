@@ -1,6 +1,6 @@
 import {configureStore} from '@reduxjs/toolkit';
 import {protectedApi} from "../slices/protectedApiSlice";
-import {rootReducer, RootState} from '../reducers/rootReducer';
+import {rootReducer} from '../reducers/rootReducer';
 import storage from 'redux-persist/lib/storage'
 import { persistStore,
     persistReducer,
@@ -26,8 +26,8 @@ export const store = configureStore({
         serializableCheck: {
             ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
         },
-    }).concat(protectedApi.middleware).concat(publicApi.middleware),
-    devTools: true
+    }).concat(protectedApi.middleware, publicApi.middleware),
+    devTools: true,
 });
 
 export const persistor = persistStore(store);

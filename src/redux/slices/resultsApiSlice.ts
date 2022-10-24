@@ -12,6 +12,9 @@ export const resultApiSlice = protectedApi.injectEndpoints({
         }),
         findAllResults: builder.query<IResults[], void>({
             query: () => '/api/v1/results',
+        }),
+        findResultsForCurrentUser: builder.query<IResults[], void>({
+            query: () => '/api/v1/results/current',
         })
     })
 })
@@ -19,4 +22,5 @@ export const resultApiSlice = protectedApi.injectEndpoints({
 export const {
     useSubmitResultMutation,
     useFindAllResultsQuery,
+    useFindResultsForCurrentUserQuery,
 } = resultApiSlice

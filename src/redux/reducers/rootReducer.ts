@@ -1,15 +1,25 @@
-import { combineReducers } from "@reduxjs/toolkit";
+import {AnyAction, combineReducers, Reducer} from "@reduxjs/toolkit";
 import resultsReducer from "../slices/state/resultsSlice";
 import authReducer from "../slices/state/authSlice";
-import {protectedApi, } from "../slices/protectedApiSlice";
+import {protectedApi,} from "../slices/protectedApiSlice";
 import {publicApi} from "../slices/publicApiSlice";
+import storage from 'redux-persist/lib/storage'
 
-export const rootReducer = combineReducers({
-        [protectedApi.reducerPath]: protectedApi.reducer,
-        [publicApi.reducerPath]: publicApi.reducer,
-        auth: authReducer,
-        results: resultsReducer,
-    });
+const appReducer = combineReducers({
+    [protectedApi.reducerPath]: protectedApi.reducer,
+    [publicApi.reducerPath]: publicApi.reducer,
+    auth: authReducer,
+    results: resultsReducer,
+});
+
+export const rootReducer: Reducer = (state: RootState, action: AnyAction) => {
+    if (action.type === "auth/logOut") {
+        storage.removeItem('persist:root');
+        state = {} as RootState;
+        return appReducer(state, action);
+    }
+    return appReducer(state, action)
+}
 
 
 export type RootState = ReturnType<typeof rootReducer>
