@@ -1,13 +1,12 @@
 import {AnyAction, combineReducers, Reducer} from "@reduxjs/toolkit";
 import resultsReducer from "../slices/state/resultsSlice";
 import authReducer from "../slices/state/authSlice";
-import {protectedApi,} from "../slices/protectedApiSlice";
-import {publicApi} from "../slices/publicApiSlice";
+import {api,} from "../slices/apiSlice";
 import storage from 'redux-persist/lib/storage'
 
 const appReducer = combineReducers({
-    [protectedApi.reducerPath]: protectedApi.reducer,
-    [publicApi.reducerPath]: publicApi.reducer,
+    [api.reducerPath]: api.reducer,
+    // [publicApi.reducerPath]: publicApi.reducer,
     auth: authReducer,
     results: resultsReducer,
 });
@@ -20,6 +19,5 @@ export const rootReducer: Reducer = (state: RootState, action: AnyAction) => {
     }
     return appReducer(state, action)
 }
-
 
 export type RootState = ReturnType<typeof rootReducer>
