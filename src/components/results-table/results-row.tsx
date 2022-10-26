@@ -15,6 +15,7 @@ const ResultsRow: FC<ResultsRowProps> = ({ result }) => {
         >
             <TableCell align="left">{result.quizName}</TableCell>
             <TableCell align="left">{result.email}</TableCell>
+            <TableCell align="left">{result.createdDate}</TableCell>
             <TableCell align="left">{result.score}</TableCell>
             <TableCell align="left">{result.maxScore}</TableCell>
         </TableRow>

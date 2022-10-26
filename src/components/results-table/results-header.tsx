@@ -9,6 +9,7 @@ const ResultsHeader: FC = () => {
             <TableRow>
                 <TableCell align="left">Тест</TableCell>
                 <TableCell align="left">Email</TableCell>
+                <TableCell align="left">Время сдачи</TableCell>
                 <TableCell align="left">Балл</TableCell>
                 <TableCell align="left">Максимальный балл</TableCell>
             </TableRow>

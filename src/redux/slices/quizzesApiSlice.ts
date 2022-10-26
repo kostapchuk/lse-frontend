@@ -1,7 +1,7 @@
 import {IQuiz} from "../../types/types";
-import {protectedApi} from "./protectedApiSlice";
+import {api} from "./apiSlice";
 
-export const quizzesApiSlice = protectedApi.injectEndpoints({
+export const quizzesApiSlice = api.injectEndpoints({
     endpoints: builder => ({
         getQuizzes: builder.query<IQuiz[], void>({
             query: () => '/api/v1/quizzes',

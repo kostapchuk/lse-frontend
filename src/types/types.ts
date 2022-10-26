@@ -13,6 +13,7 @@ export interface IQuiz {
   quizId: string;
   quizName: string;
   quizItems: IQuizItem[];
+  createdDate: string;
 }
 
 export interface IAnswer {
@@ -26,5 +27,5 @@ export interface IResults {
   email: string;
   score: number;
   maxScore: number;
-  createdDate: Date;
+  createdDate: string;
 }
