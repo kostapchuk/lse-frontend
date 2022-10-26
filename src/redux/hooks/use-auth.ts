@@ -1,8 +1,8 @@
-import { useAppSelector } from "../hooks/redux-hooks";
+import {useAppSelector} from "./redux-hooks";
 import {UserRole} from "../slices/state/authSlice";
 
 export function useAuth() {
-    const { accessToken, id, userRole, userType } = useAppSelector(state => state.auth);
+    const {accessToken, id, userRole, userType} = useAppSelector(state => state.auth);
 
     return {
         isAuth: !!accessToken,

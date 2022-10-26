@@ -12,9 +12,10 @@ interface QuizItemProps {
     question: IQuestion;
     answers: IAnswer[];
     quizId: string;
+    questionNumber: number;
 }
 
-const QuizItem: FC<QuizItemProps> = ({question, answers, quizId}) => {
+const QuizItem: FC<QuizItemProps> = ({question, answers, quizId, questionNumber}) => {
 
     const dispatch = useDispatch();
     const control = question.multipleChoice ? <Checkbox/> : <Radio/>;
@@ -34,7 +35,9 @@ const QuizItem: FC<QuizItemProps> = ({question, answers, quizId}) => {
         onChange: handleInput
     }
 
-    const children = answers.map(a =>
+    const children = answers.map(value => ({value, sort: Math.random()}))
+        .sort((a, b) => a.sort - b.sort)
+        .map(({value}) => value).map(a =>
         <FormAnswer
             key={a.id}
             id={a.id}
@@ -49,7 +52,7 @@ const QuizItem: FC<QuizItemProps> = ({question, answers, quizId}) => {
 
     return (
         <Box {...styles}>
-            <Question text={question.text}/>
+            <Question text={questionNumber + ". " + question.text}/>
             <AnswerGroup children={children} multipleChoice={question.multipleChoice}
                          parentProps={handleInputObj}/>
         </Box>

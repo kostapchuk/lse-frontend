@@ -9,22 +9,21 @@ const QuizPage: FC = () => {
 
     const mdTheme = createTheme();
     const params = useParams();
-    const { data: quizzes } = useGetQuizzesQuery()
+    const { data: quizzes } = useGetQuizzesQuery();
     const [quiz, setQuiz] = useState<IQuiz>();
 
     useEffect(() => {
         const quizIndex = quizzes?.findIndex(q => q.quizId === params.quizId);
-        console.log(quizIndex)
         if (quizIndex && quizzes != undefined) {
-            setQuiz(quizzes[quizIndex])
+            setQuiz(quizzes[quizIndex]);
         }
     })
 
     return (
         <ThemeProvider theme={mdTheme}>
-            {quiz ?
-                <Quiz quiz={quiz} /> :
-                <Outlet />
+            {quiz
+                ? <Quiz quiz={quiz} />
+                : <Outlet />
             }
         </ThemeProvider>
     );

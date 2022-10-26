@@ -1,7 +1,7 @@
 import {IResults} from "../../types/types";
-import {protectedApi} from "./protectedApiSlice";
+import {api} from "./apiSlice";
 
-export const resultApiSlice = protectedApi.injectEndpoints({
+export const resultApiSlice = api.injectEndpoints({
     endpoints: builder => ({
         submitResult: builder.mutation({
             query: (payload) => ({
@@ -12,6 +12,11 @@ export const resultApiSlice = protectedApi.injectEndpoints({
         }),
         findAllResults: builder.query<IResults[], void>({
             query: () => '/api/v1/results',
+            keepUnusedDataFor: 5,
+        }),
+        findResultsForCurrentUser: builder.query<IResults[], void>({
+            query: () => '/api/v1/results/current',
+            keepUnusedDataFor: 0,
         })
     })
 })
@@ -19,4 +24,5 @@ export const resultApiSlice = protectedApi.injectEndpoints({
 export const {
     useSubmitResultMutation,
     useFindAllResultsQuery,
+    useFindResultsForCurrentUserQuery,
 } = resultApiSlice

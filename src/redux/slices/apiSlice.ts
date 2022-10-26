@@ -3,9 +3,12 @@ import {createApi, FetchArgs, fetchBaseQuery} from "@reduxjs/toolkit/query/react
 import { RootState } from "../reducers/rootReducer";
 import {logOut, setCredentials, UserState} from "./state/authSlice";
 import { Mutex } from 'async-mutex';
-import {baseQuery} from "./publicApiSlice";
 
 const mutex = new Mutex();
+
+export const baseQuery = fetchBaseQuery({
+    baseUrl: `${process.env.REACT_APP_BACKEND_URL}`,
+})
 
 const baseQueryWithToken = fetchBaseQuery({
     baseUrl: `${process.env.REACT_APP_BACKEND_URL}`,
@@ -51,8 +54,7 @@ const baseQueryWithReauth = async (args: string | FetchArgs, api: BaseQueryApi, 
     return result;
 }
 
-export const protectedApi = createApi({
-    reducerPath: "protectedApi",
+export const api = createApi({
     baseQuery: baseQueryWithReauth,
-    endpoints: builder => ({})
+    endpoints: builder => ({}),
 })
