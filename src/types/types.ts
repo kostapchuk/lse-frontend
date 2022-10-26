@@ -13,6 +13,7 @@ export interface IQuiz {
   quizId: string;
   quizName: string;
   quizItems: IQuizItem[];
+  createdDate: string;
 }
 
 export interface IAnswer {

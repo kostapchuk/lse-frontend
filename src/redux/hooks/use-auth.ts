@@ -9,7 +9,7 @@ export function useAuth() {
         accessToken,
         id,
         userType,
-        isRoleTeacher: UserRole.ROLE_TEACHER == userRole,
-        isRoleStudent: UserRole.ROLE_STUDENT == userRole,
+        isRoleTeacher: UserRole.ROLE_TEACHER === userRole,
+        isRoleStudent: UserRole.ROLE_STUDENT === userRole,
     };
 }
