@@ -14,7 +14,7 @@ const QuizPage: FC = () => {
 
     useEffect(() => {
         const quizIndex = quizzes?.findIndex(q => q.quizId === params.quizId);
-        if (quizIndex && quizzes != undefined) {
+        if (quizIndex != undefined && quizIndex > -1 && quizzes != undefined) {
             setQuiz(quizzes[quizIndex]);
         }
     })
