@@ -12,7 +12,7 @@ export const resultApiSlice = api.injectEndpoints({
         }),
         findAllResults: builder.query<IResults[], void>({
             query: () => '/api/v1/results',
-            keepUnusedDataFor: 5,
+            keepUnusedDataFor: 0,
         }),
         findResultsForCurrentUser: builder.query<IResults[], void>({
             query: () => '/api/v1/results/current',

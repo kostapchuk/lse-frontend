@@ -9,14 +9,15 @@ import ResultsBody from "./results-body";
 
 interface ResultsTableProps {
     results: IResults[],
+    forCurrentUser: boolean,
 }
 
-const ResultsTable: FC<ResultsTableProps> = ({results}) => {
+const ResultsTable: FC<ResultsTableProps> = ({results, forCurrentUser}) => {
     return (
         <TableContainer component={Paper}>
             <Table sx={{minWidth: 650}} aria-label="simple table">
-                <ResultsHeader/>
-                <ResultsBody results={results}/>
+                <ResultsHeader forCurrentUser={forCurrentUser}/>
+                <ResultsBody results={results} forCurrentUser={forCurrentUser}/>
             </Table>
         </TableContainer>
     );

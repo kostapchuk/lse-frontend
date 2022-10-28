@@ -6,7 +6,6 @@ import storage from 'redux-persist/lib/storage'
 
 const appReducer = combineReducers({
     [api.reducerPath]: api.reducer,
-    // [publicApi.reducerPath]: publicApi.reducer,
     auth: authReducer,
     results: resultsReducer,
 });

@@ -3,12 +3,16 @@ import TableCell from "@mui/material/TableCell";
 import TableRow from "@mui/material/TableRow";
 import TableHead from "@mui/material/TableHead";
 
-const ResultsHeader: FC = () => {
+interface ResultsHeaderProps {
+    forCurrentUser: boolean,
+}
+
+const ResultsHeader: FC<ResultsHeaderProps> = ({forCurrentUser}) => {
     return (
         <TableHead>
             <TableRow>
                 <TableCell align="left">Тест</TableCell>
-                <TableCell align="left">Email</TableCell>
+                {!forCurrentUser && <TableCell align="left">Email</TableCell>}
                 <TableCell align="left">Время сдачи</TableCell>
                 <TableCell align="left">Балл</TableCell>
                 <TableCell align="left">Максимальный балл</TableCell>
