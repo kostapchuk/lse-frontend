@@ -7,12 +7,14 @@ import RegistrationForStudent from "../components/registration/registration-for-
 import LoginForTeacher from "../components/login/login-for-teacher/login-for-teacher";
 import LoginForStudent from "../components/login/login-for-student/login-for-student";
 import QuizPage from "../pages/QuizPage/QuizPage";
-import NotFoundPage from "../pages/NotFoundPage";
+import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
 import ResultsPage from "../pages/ResultsPage/ResultsPage";
+import NewQuizPage from "../pages/NewQuizPage/NewQuizPage";
 
 export const RouteNames = {
     STUDY: '/',
     QUIZ: '/quizzes/:quizId',
+    CREATE_QUIZ: '/quizzes/new',
     RESULTS: '/results',
     RESULTS_CURRENT_USER: '/results/me',
     REGISTRATION: '/registration',
@@ -42,4 +44,5 @@ export const protectedRoutes = [
 
 export const teacherRoutes = [
     { path: RouteNames.RESULTS, component: <ResultsPage /> },
+    { path: RouteNames.CREATE_QUIZ, component: <NewQuizPage /> },
 ]
