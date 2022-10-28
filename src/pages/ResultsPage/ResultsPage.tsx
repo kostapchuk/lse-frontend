@@ -14,7 +14,7 @@ const ResultsPage: FC = () => {
     })
 
     return (
-        <ResultsTable results={results}/>
+        <ResultsTable results={results} forCurrentUser={false}/>
     );
 };
 

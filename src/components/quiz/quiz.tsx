@@ -8,6 +8,8 @@ import {Button} from '@mui/material';
 import {store} from '../../redux/store/store';
 import {useSubmitResultMutation} from '../../redux/slices/resultsApiSlice';
 import {useSelector} from 'react-redux';
+import {useNavigate} from "react-router-dom";
+import {RouteNames} from "../../routes";
 
 interface QuizProps {
     quiz: IQuiz;
@@ -17,6 +19,7 @@ const Quiz: FC<QuizProps> = ({quiz}) => {
     const [submitResult] = useSubmitResultMutation();
     const userId = useSelector((state: any) => state.auth.id);
     const userType = useSelector((state: any) => state.auth.userType);
+    const navigate = useNavigate();
 
     const handleSubmit = (e: any) => {
         e.preventDefault();
@@ -26,8 +29,7 @@ const Quiz: FC<QuizProps> = ({quiz}) => {
             const payload = {quizResult: results[resIndex], userId: userId, userType: userType};
             submitResult(payload).unwrap()
                 .then((res) => {
-                    console.log(res)
-                    // get score res == score
+                    navigate(RouteNames.STUDY)
                 })
 
         }

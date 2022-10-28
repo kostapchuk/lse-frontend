@@ -25,7 +25,6 @@ const resultsSlice = createSlice({
     initialState,
     reducers: {
         updateAnswer: (state, actions) => {
-            console.log("redux updateAnswer is called")
             const quizIndex = state.results.findIndex(q => q.quizId === actions.payload.quizId)
             if (quizIndex >= 0) {
                 const questionAndAnswersIndex = state.results[quizIndex].items.findIndex(question => question.questionId === actions.payload.questionId)

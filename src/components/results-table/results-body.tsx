@@ -5,12 +5,13 @@ import TableBody from "@mui/material/TableBody";
 
 interface ResultsBodyProps {
     results: IResults[],
+    forCurrentUser: boolean
 }
 
-const ResultsBody: FC<ResultsBodyProps> = ({results}) => {
+const ResultsBody: FC<ResultsBodyProps> = ({results, forCurrentUser}) => {
     return (
         <TableBody>
-            {results.map(result => <ResultsRow key={result.id} result={result}/>)}
+            {results.map(result => <ResultsRow key={result.id} result={result} forCurrentUser={forCurrentUser}/>)}
         </TableBody>
     );
 };
