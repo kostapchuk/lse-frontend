@@ -1,7 +1,7 @@
-import {Button, IconButton, InputAdornment, TextField} from '@mui/material'
+import {Button, FormControlLabel, IconButton, InputAdornment, Switch, TextField} from '@mui/material'
 import Box from "@mui/material/Box";
-import {FC, useEffect, useState} from "react";
-import {textFieldStyle} from '../login-body-styles'
+import {ChangeEvent, FC, useEffect, useState} from "react";
+import {textFieldStyle} from './login-body-styles'
 import {TypeOf} from 'zod';
 import {SubmitHandler, useForm} from 'react-hook-form';
 import {zodResolver} from '@hookform/resolvers/zod';
@@ -9,11 +9,11 @@ import {useNavigate} from 'react-router-dom';
 import {loginSchema} from '../../login/validation-form';
 import {RouteNames} from '../../../routes';
 import {Visibility, VisibilityOff} from '@mui/icons-material';
-import { setCredentials, UserType } from "../../../redux/slices/state/authSlice";
+import {setCredentials, UserType} from "../../../redux/slices/state/authSlice";
 import {useDispatch} from "react-redux";
-import { useLoginMutation } from '../../../redux/slices/authApiSlice';
+import {useLoginMutation} from '../../../redux/slices/authApiSlice';
 
-const LoginForStudentBody: FC = () => {
+const LoginBody: FC = () => {
 
     const [showPassword, setShowPassword] = useState<boolean>(false);
     const handleClickShowPassword = () => setShowPassword(!showPassword);
@@ -34,9 +34,15 @@ const LoginForStudentBody: FC = () => {
         resolver: zodResolver(loginSchema),
     });
 
+    const [checked, setChecked] = useState<boolean>(true);
+
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+        setChecked(event.target.checked);
+    };
+
     const onSubmitHandler: SubmitHandler<LoginInput> = async (values) => {
         try {
-            const userData = await login({ ...values, userType: UserType.STUDENT }).unwrap();
+            const userData = await login({...values, userType: checked ? UserType.STUDENT : UserType.TEACHER}).unwrap();
             dispatch(setCredentials(userData));
             navigate(RouteNames.STUDY);
         } catch (err: any) {
@@ -95,6 +101,16 @@ const LoginForStudentBody: FC = () => {
                                </InputAdornment>
                            )
                        }}/>
+            <FormControlLabel
+                control={<Switch
+                    checked={checked}
+                    onChange={handleChange}
+                    inputProps={{'aria-label': 'controlled'}}
+                    size='medium'
+                />}
+                label={checked ? 'Student' : 'Teacher'}
+                labelPlacement={'end'}
+            />
             <Box mt={2} textAlign='center'>
                 <Button onClick={() => onSubmitHandler}
                         type='submit'
@@ -108,4 +124,4 @@ const LoginForStudentBody: FC = () => {
 
 type LoginInput = TypeOf<typeof loginSchema>;
 
-export default LoginForStudentBody;
+export default LoginBody;
