@@ -1,7 +1,7 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import RequireTeacherAuth from "../components/login/require-teacher-auth";
+import RequireTeacherAuth from "./require-teacher-auth";
 import {protectedRoutes, publicRoutes, RouteNames, teacherRoutes} from "./index";
-import RequireAuth from "../components/login/require-auth";
+import RequireAuth from "./require-auth";
 
 const AppRouter = () => {
     return (
