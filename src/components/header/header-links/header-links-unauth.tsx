@@ -4,17 +4,15 @@ import HeaderLinkButton from "./header-link-button";
 
 const HeaderUnAuth = () => {
   return (
-    <>
       <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
         <HeaderLinkButton
           route={RouteNames.LOGIN}
-          Name="Войти" />
+          name="Войти" />
         <HeaderLinkButton
           route={RouteNames.REGISTRATION}
-          Name="Зарегистрироваться"
+          name="Зарегистрироваться"
         />
       </Box>
-    </>
   );
 };
 

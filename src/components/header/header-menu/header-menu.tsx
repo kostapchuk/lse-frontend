@@ -32,48 +32,43 @@ const HeaderMenu = () => {
   };
 
   return (
-    <>
-      <Box sx={{ flexGrow: 0 }}>
-        <Tooltip title="Open menu">
-          <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-            <Typography variant="h5" noWrap sx={{ mr: 2 }}>
-              {userType}
-            </Typography>
-            <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-          </IconButton>
-        </Tooltip>
-        <Menu
-          sx={{ mt: "45px" }}
-          id="menu-appbar"
-          anchorEl={anchorElUser}
-          anchorOrigin={{
-            vertical: "top",
-            horizontal: "right",
-          }}
-          keepMounted
-          transformOrigin={{
-            vertical: "top",
-            horizontal: "right",
-          }}
-          open={Boolean(anchorElUser)}
-          onClose={handleCloseUserMenu}
-        >
-          <MenuList>
-            <MenuItem
-              style={{ display: "block" }}
-              onClick={handleCloseUserMenu}
+    <Box sx={{ flexGrow: 0 }}>
+      <Tooltip title="Open menu">
+        <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+          <Typography variant="h5" noWrap sx={{ mr: 2 }}>
+            {userType}
+          </Typography>
+          <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+        </IconButton>
+      </Tooltip>
+      <Menu
+        sx={{ mt: "45px" }}
+        id="menu-appbar"
+        anchorEl={anchorElUser}
+        anchorOrigin={{
+          vertical: "top",
+          horizontal: "right",
+        }}
+        keepMounted
+        transformOrigin={{
+          vertical: "top",
+          horizontal: "right",
+        }}
+        open={Boolean(anchorElUser)}
+        onClose={handleCloseUserMenu}
+      >
+        <MenuList>
+          <MenuItem style={{ display: "block" }} onClick={handleCloseUserMenu}>
+            <Button
+              onClick={() => dispatch(logOut())}
+              style={{ color: "black", backgroundColor: "none" }}
             >
-              <Button
-                onClick={() => dispatch(logOut())}
-                style={{ color: "black", backgroundColor: "none" }}
-              >
-                Выйти
-              </Button>
-            </MenuItem>
-          </MenuList>
-        </Menu>
-      </Box>
-    </>
+              Выйти
+            </Button>
+          </MenuItem>
+        </MenuList>
+      </Menu>
+    </Box>
   );
 };
 
