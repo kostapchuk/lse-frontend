@@ -6,8 +6,9 @@ import HeaderLogo from "./header-logo";
 import HeaderLinks from "./header-links/header-links";
 import HeaderMenu from "./header-menu/header-menu";
 import HeaderUnAuth from "./header-links/header-links-unauth";
+import { FC } from "react";
 
-const Header = () => {
+const Header: FC = () => {
   const { isAuth } = useAuth();
 
   return (

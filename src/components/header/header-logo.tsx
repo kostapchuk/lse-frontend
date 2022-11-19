@@ -1,7 +1,8 @@
 import { Typography } from "@mui/material";
 import AdbIcon from "@mui/icons-material/Adb";
+import { FC } from "react";
 
-const HeaderLogo = () => {
+const HeaderLogo: FC = () => {
   return (
     <>
       <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />

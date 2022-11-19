@@ -9,12 +9,12 @@ import {
   MenuItem,
   Button,
 } from "@mui/material";
-import React from "react";
+import React, { FC } from "react";
 import { logOut } from "../../../redux/slices/state/authSlice";
 import { useAuth } from "../../../redux/hooks/use-auth";
 import { useAppDispatch } from "../../../redux/hooks/redux-hooks";
 
-const HeaderMenu = () => {
+const HeaderMenu: FC = () => {
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
     null
   );

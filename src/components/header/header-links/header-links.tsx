@@ -1,10 +1,11 @@
 import { Box, Button } from "@mui/material";
+import { FC } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../../redux/hooks/use-auth";
 import { RouteNames } from "../../../routes";
 import HeaderLinkButton from "./header-link-button";
 
-const HeaderLinks = () => {
+const HeaderLinks: FC = () => {
   const { isRoleTeacher } = useAuth();
 
   return (

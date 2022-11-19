@@ -1,8 +1,9 @@
 import { Box } from "@mui/material";
+import { FC } from "react";
 import { RouteNames } from "../../../routes";
 import HeaderLinkButton from "./header-link-button";
 
-const HeaderUnAuth = () => {
+const HeaderUnAuth: FC = () => {
   return (
       <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
         <HeaderLinkButton
