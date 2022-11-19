@@ -4,7 +4,7 @@ import Container from "@mui/material/Container";
 import { useAuth } from "../../redux/hooks/use-auth";
 import HeaderLogo from "./header-logo";
 import HeaderLinks from "./header-links/header-links";
-import HeaderMenu from "./header-menu/header-burger-menu";
+import HeaderMenu from "./header-menu/header-menu";
 import HeaderUnAuth from "./header-links/header-links-unauth";
 
 const Header = () => {
