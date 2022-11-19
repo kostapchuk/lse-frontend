@@ -5,8 +5,8 @@ import {IAnswer, IQuestion} from "../../types/types";
 import {updateAnswer} from "../../redux/slices/state/resultsSlice";
 import {useDispatch} from "react-redux";
 import {Checkbox, Radio} from "@mui/material";
-import FormAnswer from "../form-answer/form-answer";
-import AnswerGroup from "../answer-group/answer-group";
+import FormAnswer from "../answer/answer";
+import AnswerGroup from "../answers/answers";
 
 interface QuizItemProps {
     question: IQuestion;
