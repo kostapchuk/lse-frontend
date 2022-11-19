@@ -2,13 +2,13 @@ import React, {FC} from 'react';
 import {FormControlLabel} from '@mui/material';
 
 // todo any remove
-interface AnswersProps {
+interface AnswerProps {
     id: string;
     control: React.ReactElement<any, any>;
     label: string;
 }
 
-const FormAnswer: FC<AnswersProps> = ({id, control, label,}) => {
+const Answer: FC<AnswerProps> = ({id, control, label,}) => {
     return (
         <FormControlLabel
             value={id}
@@ -18,4 +18,4 @@ const FormAnswer: FC<AnswersProps> = ({id, control, label,}) => {
     );
 };
 
-export default FormAnswer;
+export default Answer;
