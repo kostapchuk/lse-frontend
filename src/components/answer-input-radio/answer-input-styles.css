@@ -1,0 +1,8 @@
+.answer-input {
+    width: 565px;
+
+}
+
+::-webkit-input-placeholder {
+    text-align:center;
+    }

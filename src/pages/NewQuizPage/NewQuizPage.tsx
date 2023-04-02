@@ -1,10 +1,11 @@
-import React, {FC} from 'react';
+import {FC} from 'react';
 import {createTheme, ThemeProvider} from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import {Button, Container, Grid} from "@mui/material";
 import {useCreateQuizMutation} from "../../redux/slices/quizzesApiSlice";
 import {RouteNames} from "../../routes";
 import {useNavigate} from "react-router-dom";
+import QuestionForm from '../../components/question-form/question-form';
 
 const NewQuizPage: FC = () => {
 
@@ -162,7 +163,8 @@ const NewQuizPage: FC = () => {
         <ThemeProvider theme={mdTheme}>
             <Box sx={{display: 'flex'}}>
                 <Container maxWidth="lg" sx={{mt: 4, mb: 4}}>
-                    <Grid container spacing={3} sx={{mb: 3, width: '100%', maxWidth: '100%'}}>
+                    <QuestionForm/>
+                    <Grid style={{marginLeft: '40px'}} container spacing={3} sx={{mb: 3, width: '100%', maxWidth: '100%'}}>
                         <Button onClick={handleSubmit}
                                 style={{backgroundColor: '#1976d2'}}
                                 sx={{my: 2, color: 'white', display: 'block'}}>
