@@ -6,7 +6,7 @@ const QuestionForm = () => {
     const [inputList, setInputList] = useState<any>([]);
   
     const onAddBtnClick = (e:any) => {
-      setInputList(inputList.concat(<QuestionInput key={inputList.length}/>));
+      setInputList(inputList.concat(<QuestionInput questionNumber={inputList.length+1}/>));
     };
     return (
         <Box style={{marginLeft: '38px', marginBottom: '25px'}}>

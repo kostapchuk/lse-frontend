@@ -3,7 +3,7 @@ import React, { FC } from "react";
 import './answer-input-styles.css'
 
 
-const AnswerInput:FC = () => {
+const AnswerInputRadio:FC = () => {
     const [selectedValue, setSelectedValue] = React.useState('a');
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -24,4 +24,4 @@ const AnswerInput:FC = () => {
 )
 };
 
-export default AnswerInput
+export default AnswerInputRadio;

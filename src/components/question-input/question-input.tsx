@@ -1,12 +1,18 @@
 import { Grid, Box, Typography, TextField } from "@mui/material";
-import { FC } from "react";
+import { FC, useState } from "react";
 import AnswerForm from "../answer-form/answer-form";
 
-const QuestionInput:FC = () => {
+interface QuestionInputProps {
+    questionNumber: number;
+}
+
+const QuestionInput:FC<QuestionInputProps> = ({questionNumber}) => {
+
     return (
         <Grid>
             <Box>
-                <Typography>Вопрос</Typography>
+                
+                <Typography>Вопрос № {questionNumber}</Typography>
                 <TextField style={{marginLeft: '43px', marginBottom: '20px', marginTop: '10px', width: '600px'}} placeholder="Введите вопрос" />
             </Box>
             <Box style={{marginBottom: '25px'}}>
