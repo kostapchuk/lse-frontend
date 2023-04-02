@@ -1,95 +1,17 @@
-import React, {FC, useState} from 'react';
+import {FC} from 'react';
 import {createTheme, ThemeProvider} from "@mui/material/styles";
 import Box from "@mui/material/Box";
-import {Button, Container, Grid, Input, Radio, RadioGroup, TextField, Typography} from "@mui/material";
+import {Button, Container, Grid} from "@mui/material";
 import {useCreateQuizMutation} from "../../redux/slices/quizzesApiSlice";
 import {RouteNames} from "../../routes";
 import {useNavigate} from "react-router-dom";
+import QuestionForm from '../../components/question-form/question-form';
 
 const NewQuizPage: FC = () => {
 
     const mdTheme = createTheme();
     const [createQuiz] = useCreateQuizMutation();
-    const [selectedValue, setSelectedValue] = React.useState('a');
     const navigate = useNavigate();
-
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setSelectedValue(event.target.value);
-      };
-
-    const QuestionInput:FC = () => {
-        return (
-            <Grid>
-                <Box>
-                    <Typography>Вопрос</Typography>
-                    <TextField style={{marginLeft: '43px', marginBottom: '20px', marginTop: '10px'}} placeholder="Your input here" />
-                </Box>
-                <Box style={{marginBottom: '25px'}}>
-                <Typography style={{marginBottom: '10px'}}>Варианты ответа</Typography>
-                <Radio
-        checked={selectedValue === 'a'}
-        onChange={handleChange}
-        value="a"
-        name="radio-buttons"
-        inputProps={{ 'aria-label': 'A' }}
-      />
-      <TextField placeholder="Your input here" />
-            <Radio
-        checked={selectedValue === 'b'}
-        onChange={handleChange}
-        value="b"
-        name="radio-buttons"
-        inputProps={{ 'aria-label': 'B' }}
-        />
-      <TextField placeholder="Your input here" />
-      <AnswerForm/>
-                </Box>
-            </Grid>
-    )
-    };
-
-    const AnswerInput:FC = () => {
-        return (
-                <Box style={{display: 'flex'}}>
-                            <Radio
-        checked={selectedValue === 'c'}
-        onChange={handleChange}
-        value="b"
-        name="radio-buttons"
-        inputProps={{ 'aria-label': 'C' }}
-        />
-      <TextField placeholder="Your input here" />
-                </Box>
-    )
-    };
-
-      const QuestionForm = () => {
-        const [inputList, setInputList] = useState<any>([]);
-      
-        const onAddBtnClick = (e:any) => {
-          setInputList(inputList.concat(<QuestionInput key={inputList.length}/>));
-        };
-        return (
-            <Box style={{marginLeft: '38px', marginBottom: '25px'}}>
-              {inputList}
-              <Button onClick={onAddBtnClick}>Add Question</Button>
-            </Box>
-          );
-    }
-
-    const AnswerForm = () => {
-        const [inputList, setInputList] = useState<any>([]);
-      
-        const onAddBtnClick = (e:any) => {
-          setInputList(inputList.concat(<AnswerInput key={inputList.length}/>));
-        };
-        return (
-            <Box style={{marginLeft: '38px', marginBottom: '25px', display:'flex'}}>
-              {inputList}
-              <Button onClick={onAddBtnClick}>Add Answer</Button>
-            </Box>
-          );
-    }
 
     const handleSubmit = (e: any) => {
         e.preventDefault();
